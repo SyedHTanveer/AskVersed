@@ -1,0 +1,31 @@
+.jumbotron {
+  /* The image used */
+   background-image: url("../assets/home1.jpg");
+   background-color: rgba(0,0,0,0.7);
+   /* Set a specific height */
+   height: 90vh;
+   /* Create the parallax scrolling effect */
+   background-attachment: fixed;
+   background-position:top;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+.display-4 {
+  font-weight: 100;
+}
+
+.container-jumbotron {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  margin: 7% auto;
+}
+
+.container-btn {
+  margin-top: 20px;
+}
+
+.signup:hover {
+  text-decoration: none;
+}

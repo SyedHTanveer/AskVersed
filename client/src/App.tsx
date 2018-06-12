@@ -1,21 +1,19 @@
 import * as React from 'react';
-import './App.css';
-import HomeScreen from './HomeScreen';
-import Navbar from './navbar';
-
+import { Route, Switch } from 'react-router-dom';
+import Footer from './components/footer';
+import Navbar from './components/navbar';
+import HomeScreen from './pages/HomeScreen';
 
 class App extends React.Component {
   public render() {
     return (
-      <div className="App">
-        <Navbar />
-        <div className="shift-nav">
-        <HomeScreen />
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
-      </div>
+        <div>
+          <Navbar />
+            <Switch>
+              <Route path='/' component={HomeScreen}/>
+            </Switch>
+          <Footer />
+        </div>
     );
   }
 }
