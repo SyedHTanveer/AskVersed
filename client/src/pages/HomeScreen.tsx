@@ -1,7 +1,11 @@
 import * as React from "react";
-import Jumbotron from '../components/jumbotron';
 import './HomeScreen.css';
+import BrowseAdvisors from './HomeScreen/browseadvisors';
+import HowItWorks from './HomeScreen/howitworks';
+import Jumbotron from './HomeScreen/jumbotron';
 import Perks from './HomeScreen/perks';
+import PreFooter from './HomeScreen/prefooter';
+import Testimonials from './HomeScreen/testimonials';
 
 export default class HomeScreen extends React.Component {
   public render() {
@@ -10,8 +14,20 @@ export default class HomeScreen extends React.Component {
         <div>
           <Jumbotron />
         </div>
+        <div className="bg-light">
+          <Perks />
+        </div>
         <div>
-        <Perks />
+          <HowItWorks />
+        </div>
+        <div className="bg-light">
+          <Testimonials />
+        </div>
+        <div>
+          <BrowseAdvisors />
+        </div>
+        <div className="bg-light">
+          <PreFooter />
         </div>
       </div>
     );
