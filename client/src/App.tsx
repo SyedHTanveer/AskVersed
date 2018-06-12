@@ -5,6 +5,20 @@ import Navbar from './components/navbar';
 import HomeScreen from './pages/HomeScreen';
 
 class App extends React.Component {
+  public componentWillMount() {
+    fetch("http://localhost:8000/auth", {
+      credentials: 'include',
+      method:"POST",
+    }).then((res: Response) => {
+      // tslint:disable-next-line:no-console
+      console.log(res);
+      // tslint:disable-next-line:no-console
+      console.log("trying auth");
+      fetch("http://localhost:8000/auth", {
+        credentials: 'include'
+      });
+    });
+  }
   public render() {
     return (
         <div>
