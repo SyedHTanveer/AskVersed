@@ -1,29 +1,3 @@
-.home-top {
-  /* The image used */
-  background-image: url("../assets/books.jpg");
-  background-color: rgba(0,0,0,0.7);
-  /* Set a specific height */
-  height: 100vh;
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position:top;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
- .text-home-big {
-  font-family: 'proxima_nova_ltthin', Arial, sans-serif;
-  font-size: 48px;
-  font-weight: 300px;
-  text-align: center;
-}
-
- .text-home-desc {
-  font-family: 'proxima_nova_ltthin', sans-serif;
-  font-size: 1.4em;
-  text-align: center;
-}
-
 .advisor-button {
   text-align: center;
 }
