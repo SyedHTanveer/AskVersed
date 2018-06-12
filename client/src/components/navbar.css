@@ -1,0 +1,15 @@
+.nav-item {
+  color: #165f99;
+  font-family: 'Proxima', sans-serif;
+  text-transform: uppercase;
+  font-size: 100%;
+  font-weight: 300;
+}
+.nav-item:hover {
+    text-decoration: none;
+    color: #333;
+}
+
+.logo-img {
+  max-height: 35px;
+}
