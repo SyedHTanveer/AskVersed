@@ -1,11 +1,14 @@
 import * as React from "react";
+
+/* All components for homepages  */
+import BrowseAdvisors from './HomeScreen-components/browseadvisors';
+import HowItWorks from './HomeScreen-components/howitworks';
+import Jumbotron from './HomeScreen-components/jumbotron';
+import Perks from './HomeScreen-components/perks';
+import PreFooter from './HomeScreen-components/prefooter';
+import Testimonials from './HomeScreen-components/testimonials';
+
 import './HomeScreen.css';
-import BrowseAdvisors from './HomeScreen/browseadvisors';
-import HowItWorks from './HomeScreen/howitworks';
-import Jumbotron from './HomeScreen/jumbotron';
-import Perks from './HomeScreen/perks';
-import PreFooter from './HomeScreen/prefooter';
-import Testimonials from './HomeScreen/testimonials';
 
 export default class HomeScreen extends React.Component {
   public render() {
