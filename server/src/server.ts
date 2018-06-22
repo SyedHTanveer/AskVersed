@@ -10,7 +10,16 @@ app.use(cookieParser());
 app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 
 app.get('/', (req: Request, res: Response) => {
-  console.log("received '/' get request" );
+  console.log("received '/' get request" + req.session );
+  if(req.session && req.session.page_views){
+    req.session.page_views++;
+    console.log(req.session.page_views);
+    res.send("You visited this page " + req.session.page_views + " times");
+  } else {
+   req.session.page_views = 1;
+   console.log("req.session.page_views");
+   res.send("Welcome to this page for the first time!");
+  }
   res.send("working");
 });
 

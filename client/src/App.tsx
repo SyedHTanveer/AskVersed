@@ -6,6 +6,7 @@ import HomeScreen from './pages/HomeScreen';
 
 class App extends React.Component {
   public componentWillMount() {
+    fetch("http://localhost:8000/");
     fetch("http://localhost:8000/auth", {
       credentials: 'include',
       method:"POST",
