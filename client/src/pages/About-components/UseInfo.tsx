@@ -16,7 +16,7 @@ export default class UseInfo extends React.Component {
               Here are some examples:
             </h2>
             <br/>
-            <div className="col-sm-6 col-md-3 col-s-12 content-box">
+            <div className="col-sm-12 col-md-12 col-xs-12 content-box">
               <h4 className="title">
                 <span className="fa-stack fa-2x">
                   <i className="fa fa-circle fa-stack-2x" />
@@ -35,7 +35,7 @@ export default class UseInfo extends React.Component {
               Are test prep programs necessary?
             </p>
 
-            <div className="col-sm-6 col-md-3 col-s-12 content-box">
+            <div className="col-sm-12 col-md-12 col-xs-12 content-box">
               <h4 className="title">
                 <span className="fa-stack fa-2x">
                  <i className="fa fa-circle fa-stack-2x" />
@@ -54,7 +54,7 @@ export default class UseInfo extends React.Component {
               How should my daughter spend her summers?
             </p>
 
-            <div className="col-md-3 col-s-12 content-box">
+            <div className="col-sm-12 col-md-12 col-xs-12 content-box">
               <h4 className="title"><span className="fa-stack fa-2x">
                 <i className="fa fa-circle fa-stack-2x" />
                 <i className="fa fa-map-signs fa-stack-1x fa-inverse" aria-hidden="true" /></span></h4>
