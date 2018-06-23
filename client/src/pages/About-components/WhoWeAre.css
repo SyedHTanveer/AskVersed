@@ -1,5 +1,13 @@
 .grey-panel{ 
-    background-color: #F5F5F5;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    /* The image used */
+   background-image: url("../../assets/wood_para.jpg");
+   background-color: rgba(0,0,0,0.7);
+   /* Set a specific height */
+   /* Create the parallax scrolling effect */
+   background-attachment: fixed;
+   background-position:top;
+   background-repeat: no-repeat;
+   background-size: cover;
+   padding-top: 60px;
+   padding-bottom: 60px;
 }
