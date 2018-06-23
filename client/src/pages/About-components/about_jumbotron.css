@@ -1,0 +1,25 @@
+.main-background-about {
+  /* The image used */
+   background-image: url("../../assets/beach.jpg");
+   background-color: rgba(0,0,0,0.7);
+   /* Set a specific height */
+   height: 80vh;
+   /* Create the parallax scrolling effect */
+   background-attachment: fixed;
+   background-position:top;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+.display-5 {
+  font-family: 'proxima_nova_ltthin',sans-serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: black;
+  font-style: normal;
+}
+
+.lead{
+  font-family: 'proxima_nova_ltthin', sans-serif;
+  font-size: 1.4em;
+  color: white;
+}
