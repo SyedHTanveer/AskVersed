@@ -17,7 +17,10 @@ export default class Navbar extends React.Component {
             <div className="collapse navbar-collapse" id="collapsibleNavbar" aria-expanded="false" aria-controls="nav-collapse">
               <ul className="navbar-nav ml-auto align-items-center mt-2 mt-md-0">
                 <li className="nav-item nav-item-text p-2">
-                  <Link to="/advisors" style={{ textDecoration: 'none' }}>Advisors</Link> {/* had to this textDecoration through inline style because it was not working in CSS */}
+                  <Link to="/about" style={{ textDecoration: 'none' }}>About</Link>{/* had to this textDecoration through inline style because it was not working in CSS */}
+                </li>
+                <li className="nav-item nav-item-text p-2">
+                  <Link to="/advisors" style={{ textDecoration: 'none' }}>Advisors</Link>
                 </li>
                 <li className="nav-item nav-item-text p-2">
                   <Link to="/blog" style={{ textDecoration: 'none' }}>Blog</Link>
