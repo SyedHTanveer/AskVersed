@@ -1,8 +1,8 @@
 .main-background {
   /* The image used */
    background-image:  linear-gradient(
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
     ), url("../../assets/school.jpg");
    background-color: rgba(0,0,0,0.7);
    /* Set a specific height */
@@ -13,14 +13,15 @@
    background-repeat: no-repeat;
    background-size: cover;
 }
-.display-4 {
-  font-family: 'proxima_nova_ltthin', Arial, sans-serif;
-  font-size: 48px;
+
+.main-header {
   color: white;
+  font-family: 'proxima_nova_ltthin', Arial, sans-serif;
+  overflow: hidden;
 }
 
 .lead{
   font-family: 'proxima_nova_ltthin', sans-serif;
-  font-size: 1.4em;
   color: white;
+  overflow: hidden;
 }

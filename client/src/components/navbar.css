@@ -1,16 +1,23 @@
-.nav-item {
-  color: #165f99;
+.logo-img {
+  max-height: 35px;
+}
+
+nav .btn{
+  border-radius: 50px;
+}
+
+.nav-item-text {
   font-family: 'Proxima', sans-serif;
-  text-transform: uppercase;
   font-size: 100%;
   font-weight: 300;
 }
 
-.nav-item:hover {
-    text-decoration: none;
-    color: #333;
+.nav-item-text:hover {
+  text-decoration: none;
+  border-bottom: 3px solid #165f99;
 }
 
-.logo-img {
-  max-height: 35px;
+.nav-item-text:active {
+  text-decoration: none;
+  border-bottom: 3px solid #165f99;
 }
