@@ -12,7 +12,7 @@ export default class HowItWorks extends React.Component {
                 <ul className="timeline">
                   <li>
                     <div className="timeline-image">
-                      <i className="fas fa-search fa-7x fa-inverse" />
+                      <i className="fas fa-search fn-icon" />
                     </div>
                     <div className="timeline-panel">
                       <div className="timeline-heading">
@@ -29,7 +29,7 @@ export default class HowItWorks extends React.Component {
                   </li>
                   <li className="timeline-inverted">
                     <div className="timeline-image">
-                      <i className="fas fa-id-card fa-7x fa-inverse" />
+                      <i className="fas fa-id-card fn-icon" />
                     </div>
                     <div className="timeline-panel">
                       <div className="timeline-heading">
@@ -46,7 +46,7 @@ export default class HowItWorks extends React.Component {
                   </li>
                   <li>
                     <div className="timeline-image">
-                      <i className="fas fa-phone fa-7x fa-inverse" />
+                      <i className="fas fa-phone fn-icon" />
                     </div>
                     <div className="timeline-panel">
                       <div className="timeline-heading">
