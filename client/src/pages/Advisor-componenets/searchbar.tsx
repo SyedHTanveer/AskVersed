@@ -11,6 +11,7 @@ export default class SearchBar extends React.Component {
             console.log("posted to advisors");
           });
   }
+  
   public render() {
     return(
       <div className ="container pt-5 w-50">

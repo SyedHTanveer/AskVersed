@@ -70,11 +70,12 @@ export default class Advisors extends React.Component<{},any>  {
           <div className="block">
             {this.userInfo()}
             {this.userInfo()}
+            {this.userInfo()}
           </div>
         </div>
 
          <div className="modal fade" id="advisorModal" role="dialog" aria-labelledby="advisorModal" aria-hidden="true">
-            <div className="modal-dialog modal-lg" role="document">
+            <div className="modal-dialog modal-lg modal-dialog-centered" role="document">
               <div className="modal-content">
                 <div className="modal-header">
                   <h5 className="modal-title justify" id="advisorModalLabel">{this.state.selected_advisor.body.name}</h5>
