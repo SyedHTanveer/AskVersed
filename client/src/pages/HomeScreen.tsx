@@ -9,8 +9,6 @@ import Perks from './HomeScreen-components/perks';
 import Schools from './HomeScreen-components/schools'
 import Testimonials from './HomeScreen-components/testimonials';
 
-import './HomeScreen.css';
-
 export default class HomeScreen extends React.Component {
   public render() {
     return (

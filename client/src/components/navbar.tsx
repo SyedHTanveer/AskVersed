@@ -30,10 +30,8 @@ export default class Navbar extends React.Component {
                 </li>
 
 
-                <li className="nav-item p-2 d-none d-md-inline">
-                  <Link to="/login" style={{ textDecoration: 'none' }}>
+                <li className="nav-item p-2 d-none d-md-inline" style={{ textDecoration: 'none' }}>
                     <button className="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#signinModal">Log In</button>
-                  </Link>
                 </li>
                 <li className="nav-item p-2 d-md-none">
                   <Link to="/login" style={{ textDecoration: 'none' }}>
