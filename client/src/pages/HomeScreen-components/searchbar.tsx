@@ -3,9 +3,6 @@ import * as React from 'react';
 export default class SearchBar extends React.Component {
   public onChange = () => {
           fetch("http://localhost:8000/advisors", {
-            body: {
-              
-            },
             credentials: 'include',
             method:'POST',
 

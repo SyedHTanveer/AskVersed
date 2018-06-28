@@ -7,7 +7,14 @@ var elasticsearch = require('elasticsearch');
 var client = new elasticsearch.Client({
   host: 'localhost:9200',
   log: 'trace'
+}).then(() => {
+  client.indices.exists({index: "advisors"})
+  .then(() => {
+    client.indices.delete({index: "advisors"})
+  });
 });
+
+
 
 client.indices.create({
     index: 'advisors'
@@ -18,7 +25,7 @@ client.indices.create({
         else {
             console.log("create");
         }
-});
+}).then();
 
 
 const port : number = 8000;
@@ -68,8 +75,14 @@ app.post('/advisors', (req: Request, res: Response) => {
     type: 'advisor',
     id: '1',
     body: {
-      "name": "Kunal",
-      "age": 10
+      "name": "Kay",
+      "city": "Lancaster",
+      "state": "Pennsylvania",
+      "colleges": ["Yale University", "Boston College", "Columbia University" ],
+      "about": "Having gone through the college admissions process with 4 children, I can definitely say that there is so much to learn with each child, based on their interests and the type of schools they are interested in. I am happy to share my perspective on how 4 very different children approached the process. My children can be summed up as scholar-athletes. The challenges of juggling sports and academics cannot be underestimated. My kids played varsity lacrosse, tennis, swimming as Captains and state-ranked athletes. Please reach out to me if you are interested in any of these sports.",
+      "admissions": ["Where and when to start?", "Choosing the right school/program for the student", "General admissions process and timeline", "DIY test prep"],
+      "high-school": ["Helping your child identify his/her interests", "Managing honors/AP class load", "Extracurricular planning"],
+      "highlights": ["Economics", "History", "Neuroscience", "Psychology", "Lacrosse", "Swimming"]
     }
   }).then(( ) => {
     console.log("great success");
