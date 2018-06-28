@@ -7,7 +7,7 @@ import './navbar.css';
 export default class Navbar extends React.Component {
   public render() {
     return (
-      <nav className="navbar navbar-expand-md navbar-light bg-light shadow">
+      <nav className="navbar navbar-expand-md navbar-light bg-light shadow sticky-top">
         <div className="container">
           <Link className="navbar-brand" to="/"><img className="logo-img" src={logo}/></Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">

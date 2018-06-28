@@ -69,6 +69,62 @@ client.indices.exists({ index: "advisors" })
                     "Sports",
                     "Soccer",
                     "Volleyball"]
+            }, {
+                create: {
+                    _index: 'users',
+                    _type: 'advisor',
+                    _id: '3',
+                }
+            }, {
+                "name": "Abi",
+                "city": "New York",
+                "state": "New York",
+                "colleges": ["Carnegie Mellon University"],
+                "about": "My son has always been interested in the sciences and business. He found a great fit at Carnegie Mellon where he is studying Engineering with an eye to combine it with a career in business in the future. We are from Nigeria, and my son attended part of high school at a private school in Nigeria, and then transferred to a boarding school in New York City. As these transitions can be tough for students, I am happy to share our experiences with transfers and applying to school as an international student.",
+                "admissions": ["Choosing the right school/program for the student", "General admissions process and timeline"],
+                "highschool": ["Managing honors/AP class load"]
+            }, {
+                create: {
+                    _index: 'users',
+                    _type: 'advisor',
+                    _id: '4',
+                }
+            }, {
+                "name": "Steve",
+                "city": "Moraga",
+                "state": "California",
+                "colleges": ["Cornell University"],
+                "about": "My daughter went through multiple moves during high school, starting her freshman year and completing her senior year at a public school in CA while spending her sophomore and junior year at a private school in FL. If I can shed some light on all of the facets of moves and transferring high schools, and what that means for college admissions process, I am more than happy to share my experience with others in the same boat. I am also happy to provide perspective on applying to East Coast schools from California.",
+                "admissions": ["Choosing the right school/program for the student", "General admissions process and timeline", "Early action"]
+            }, {
+                create: {
+                    _index: 'users',
+                    _type: 'advisor',
+                    _id: '5',
+                }
+            }, {
+                "name": "Catherine",
+                "city": "Johnson City",
+                "state": "Tennessee",
+                "colleges": ["Harvard University", "University of Michigan -- Ann Arbor"],
+                "about": "As a mom of 4 college students and recent grads, I have definitely amassed a lot of information when it comes to college admissions. One word of advice - definitely start the process early, and get the kids excited about college (not seeing it as a drudgery!). I have 3 kids at Harvard and one at University of Michigan. They all had different interests and pursued different activities. Some areas that I can be helpful in: Athletic recruiting (swimming), golf, math competition track, and school newspapers.",
+                "admissions": ["Where and when to start?",
+                    "How parents can be most helpful in the process",
+                    "Choosing the right school/program for the student",
+                    "General admissions process and timeline",
+                    "Early action",
+                    "DIY test prep",
+                    "Application Essays",
+                    "Touring schools",
+                    "Interview guidance",
+                    "Athletic recruiting"],
+                "highschool": ["Helping your child identify his/her interests",
+                    "Managing honors/AP class load",
+                    "Working with your child's school, teachers, and guidance counselors",
+                    "Golf",
+                    "Swimming",
+                    "Athletic recruiting timeline and process"],
+                "highlights": ["Economics", "History", "Neuroscience", "Psychology", "Lacrosse", "Swimming"]
             }
         ]
     });
@@ -76,7 +132,8 @@ client.indices.exists({ index: "advisors" })
 const port = 8000;
 const app = express();
 app.use(cookieParser());
-app.use(bodyParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 app.get('/', (req, res) => {
     console.log("received '/' get request" + req.session);
@@ -133,6 +190,7 @@ app.post('/advisors', (req, res) => {
 });
 app.post('/search', (req, res) => {
     console.log("receieved '/search' POST request");
+    console.log(req.body);
     if (req.body.query === "all") {
         client.search({
             index: "users", body: {
@@ -144,24 +202,35 @@ app.post('/search', (req, res) => {
     }
     //  if (req.cookies && req.cookies.authorization == "yes") {
     else {
-        client.search({
-            index: "users",
-            body: {
-                "query": {
-                    "bool": {
-                        "must": [
-                            {
-                                "query_string": {
-                                    "query": req.body.query
+        req.body.filter ?
+            client.search({
+                index: "users",
+                body: {
+                    "query": {
+                        "bool": {
+                            "must": [
+                                {
+                                    "query_string": {
+                                        "query": req.body.query
+                                    }
+                                }, {
+                                    "match": req.body.filter
                                 }
-                            }, {
-                                "match": req.body.filter
-                            }
-                        ]
+                            ]
+                        }
                     }
                 }
-            }
-        }).then((q) => res.send(q));
+            }).then((q) => res.send(q)) :
+            client.search({
+                index: "users",
+                body: {
+                    "query": {
+                        "query_string": {
+                            "query": req.body.query
+                        }
+                    },
+                }
+            }).then((q) => res.send(q));
     }
     //  } else {
     //  return res.sendStatus(404);
