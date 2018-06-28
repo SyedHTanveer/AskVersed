@@ -10,8 +10,13 @@ export default class SearchBar extends React.Component {
             // tslint:disable-next-line:no-console
             console.log("posted to advisors");
           });
-
-
   }
+  public render() {
+    return(
+      <div>
+        <div> test </div>
+      </div>
 
+    )
+  }
 }

@@ -3,29 +3,40 @@ import {Request, Response} from 'express';
 import * as cookieParser from 'cookie-parser';
 import * as cors from 'cors';
 
-var elasticsearch = require('elasticsearch');
-var client = new elasticsearch.Client({
-  host: 'localhost:9200',
-  log: 'trace'
-}).then(() => {
-  client.indices.exists({index: "advisors"})
-  .then(() => {
-    client.indices.delete({index: "advisors"})
-  });
-});
+const elasticsearch = require('elasticsearch');
+const client = new elasticsearch.Client({ host: 'localhost:9200', log: 'trace' })
+.then(() =>  client.indices.exists({ index: "advisors" })
+.then(() =>  client.indices.delete({ index: "advisors" })
+.then(() => client.indices.create({ index: 'advisors' })
+.catch(() => console.log("failed"))
+.then(() => {
+  console.log("success");
+  client.bulk({body: [
+    {
+      start: {
+      _index: 'users',
+      _type: 'advisor',
+      _id: '1',
+      _body: {
+        "name": "Kay",
+        "city": "Lancaster",
+        "state": "Pennsylvania",
+        "colleges": ["Yale University", "Boston College", "Columbia University" ],
+        "about": "Having gone through the college admissions process with 4 children, I can definitely say that there is so much to learn with each child, based on their interests and the type of schools they are interested in. I am happy to share my perspective on how 4 very different children approached the process. My children can be summed up as scholar-athletes. The challenges of juggling sports and academics cannot be underestimated. My kids played varsity lacrosse, tennis, swimming as Captains and state-ranked athletes. Please reach out to me if you are interested in any of these sports.",
+        "admissions": ["Where and when to start?", "Choosing the right school/program for the student", "General admissions process and timeline", "DIY test prep"],
+        "high-school": ["Helping your child identify his/her interests", "Managing honors/AP class load", "Extracurricular planning"],
+        "highlights": ["Economics", "History", "Neuroscience", "Psychology", "Lacrosse", "Swimming"]
+      }
+    }
+  }, {
+      start: {
+
+      }
+  }]})
+}))));
 
 
 
-client.indices.create({
-    index: 'advisors'
-  }, function(err: any, resp: any, status: any) {
-        if(err) {
-            console.log("failed");
-        }
-        else {
-            console.log("create");
-        }
-}).then();
 
 
 const port : number = 8000;
@@ -93,7 +104,9 @@ app.post('/advisors', (req: Request, res: Response) => {
 app.post('/search', (req: Request, res:Response) => {
   console.log("receieved '/search' POST request");
   if(req.cookies && req.cookies.authorization == "yes") {
+    client.search({
 
+    }).then(res.)
   }
   return res.sendStatus(404);
 });

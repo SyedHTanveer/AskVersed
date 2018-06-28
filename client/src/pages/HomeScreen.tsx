@@ -1,6 +1,7 @@
 import * as React from "react";
 
 /* All components for homepages  */
+import
 import BrowseAdvisors from './HomeScreen-components/browseadvisors';
 import HowItWorks from './HomeScreen-components/howitworks';
 import Jumbotron from './HomeScreen-components/jumbotron';
@@ -16,11 +17,6 @@ export default class HomeScreen extends React.Component {
         <div>
           <Jumbotron />
         </div>
-        <form>
-          <label className="label"> Name: </label>
-            <input type="text" name="name" />
-          <input type="submit" value="Submit" />
-        </form>
         <div className="bg-light">
           <Perks />
         </div>
@@ -35,6 +31,9 @@ export default class HomeScreen extends React.Component {
         </div>
         <div>
           <BrowseAdvisors />
+        </div>
+        <div>
+          <Advisor />
         </div>
       </div>
     );
