@@ -226,7 +226,7 @@ app.post('/search', (req, res) => {
                 body: {
                     "query": {
                         "query_string": {
-                            "query": req.body.query
+                            "query": req.body.query + "~",
                         }
                     },
                 }

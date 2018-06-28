@@ -177,7 +177,7 @@ export default class Advisors extends React.Component<{}, any>  {
         </div>
 
         <div className="modal fade" id="advisorModal" role="dialog" aria-labelledby="advisorModal" aria-hidden="true">
-          <div className="modal-dialog modal-lg" role="document">
+          <div className="modal-dialog modal-lg modal-dialog-centered" style={{"maxWidth": '80vw'}} role="document">
             <div className="modal-content">
               <div className="modal-header justify-content-center">
                 <h3 className="modal-title justify" id="advisorModalLabel">{this.state.selected_advisor._source.name}</h3>
