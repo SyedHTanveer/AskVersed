@@ -1,3 +1,8 @@
+.fn-icon{
+    padding-top: 12px;
+    font-size: 110px;
+}
+
 .timeline {
     position: relative;
     padding:4px 0 0 0;
@@ -58,7 +63,8 @@
     left: 50%;
     border: 7px solid #165f99;
     border-radius: 100%;
-    background-color: #165f99;
+    background-color: white;
+    color: #165f99;
     width: 200px;
     height: 200px;
     margin-left: -100px;
@@ -101,7 +107,7 @@
   margin-top:22px;
     margin-bottom: 4px;
     padding:0;
-    color: #b3b3b3;
+    color: #333333;
 }
 
 .timeline .timeline-heading h4.subheading {
@@ -115,7 +121,7 @@
 .timeline .timeline-body>p,
 .timeline .timeline-body>ul {
     margin-bottom: 0;
-    color:#808080;
+    color: #333333;
 }
 /*Style for even div.line*/
 .timeline>li:nth-child(odd) .line:before {
@@ -221,6 +227,12 @@
 }
 /* Custom, iPhone Retina */
 @media only screen and (max-width: 767px) {
+
+  .fn-icon{
+      padding-top: 12px;
+      font-size: 70px;
+  }
+
   .timeline > li:nth-child(even) {
     margin-bottom: 0px;
     min-height: 0px;
