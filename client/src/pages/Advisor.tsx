@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export default class Advisor extends React.Component {
+export default class Advisor extends React.Component <IAdvisorProps> {
 
   public constructor(props) {
     super(props);
@@ -9,25 +9,8 @@ export default class Advisor extends React.Component {
       selected_advisor:{}
     }
   }
-
-  public componentDidMount() {
-
-  }
-
-
   public render() {
     return (
-      <div>
-      {{
-        for(let i = 0; i < 10;i++) {
-
-        }
-
-    }}
-      </div>
-
-
-      //(this.state.selected_advisor >= 0 && )
      <div className="modal fade" id="signinModal" role="dialog" aria-labelledby="SigninModal" aria-hidden="true">
         <div className="modal-dialog" role="document">
           <div className="modal-content">
@@ -42,7 +25,7 @@ export default class Advisor extends React.Component {
               {
              this.state.selected_advisor.body.colleges.map((college, index) => {
                   return (
-                    <p className="college">{college}</p>
+                    <p key={index} className="college">{college}</p>
                   )
                 })
               }
@@ -52,9 +35,7 @@ export default class Advisor extends React.Component {
 
 
             </div>
-            <div className="modal-body">
-
-            </div>
+            <div className="modal-body"/>
             <div className="modal-footer">
               <button type="button" className="btn btn-outline-primary" data-dismiss="modal">Close</button>
             </div>
