@@ -17,6 +17,11 @@ export default class HomeScreen extends React.Component {
         <div>
           <Jumbotron />
         </div>
+        <form>
+          <label className="label"> Name: </label>
+            <input type="text" name="name" />
+          <input type="submit" value="Submit" />
+        </form>
         <div className="bg-light">
           <Perks />
         </div>

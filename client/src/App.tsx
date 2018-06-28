@@ -18,7 +18,7 @@ class App extends React.Component {
       fetch("http://localhost:8000/auth", {
         credentials: 'include'
       });
-    });
+    })
   }
   public render() {
     return (
