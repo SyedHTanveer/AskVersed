@@ -40,7 +40,7 @@ export default class Advisor extends React.Component <IAdvisorProps> {
               {
                 this.state.selected_advisor.body.admissions.map((el, index) => {
                   return (
-                    <p>{el}</p>
+                    <p key={index}>{el}</p>
                   )
                 })
                }
@@ -58,7 +58,7 @@ export default class Advisor extends React.Component <IAdvisorProps> {
               {
                 this.state.selected_advisor.body.highlights.map((el, index) => {
                   return (
-                    <p>{el}</p>
+                    <p key={index}>{el}</p>
                   )
                 })
                }
