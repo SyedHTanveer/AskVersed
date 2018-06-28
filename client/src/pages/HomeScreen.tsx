@@ -1,7 +1,6 @@
 import * as React from "react";
 
 /* All components for homepages  */
-import
 import BrowseAdvisors from './HomeScreen-components/browseadvisors';
 import HowItWorks from './HomeScreen-components/howitworks';
 import Jumbotron from './HomeScreen-components/jumbotron';
@@ -31,9 +30,6 @@ export default class HomeScreen extends React.Component {
         </div>
         <div>
           <BrowseAdvisors />
-        </div>
-        <div>
-          <Advisor />
         </div>
       </div>
     );
