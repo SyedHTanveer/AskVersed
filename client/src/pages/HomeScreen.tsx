@@ -5,7 +5,8 @@ import BrowseAdvisors from './HomeScreen-components/browseadvisors';
 import HowItWorks from './HomeScreen-components/howitworks';
 import Jumbotron from './HomeScreen-components/jumbotron';
 import Perks from './HomeScreen-components/perks';
-import PreFooter from './HomeScreen-components/prefooter';
+// import PreFooter from './HomeScreen-components/prefooter';
+import Schools from './HomeScreen-components/schools'
 import Testimonials from './HomeScreen-components/testimonials';
 
 import './HomeScreen.css';
@@ -32,10 +33,10 @@ export default class HomeScreen extends React.Component {
           <Testimonials />
         </div>
         <div>
-          <BrowseAdvisors />
+          <Schools />
         </div>
-        <div className="bg-light">
-          <PreFooter />
+        <div>
+          <BrowseAdvisors />
         </div>
       </div>
     );
