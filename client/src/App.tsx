@@ -5,7 +5,8 @@ import Navbar from './components/navbar';
 import About from './pages/About';
 import Advisors from './pages/Advisor';
 import HomeScreen from './pages/HomeScreen';
-
+import Login from './pages/Login-componenets/login';
+import Signup from './pages/Signup-componenets/signup';
 
 class App extends React.Component {
   public componentWillMount() {
@@ -23,11 +24,14 @@ class App extends React.Component {
       });
     })
   }
+
   public render() {
     return (
         <div>
           <Navbar />
             <Switch>
+              <Route path='/signup' component={Signup}/>
+              <Route path='/login' component={Login}/>
               <Route path='/advisors' component={Advisors}/>
               <Route path='/about' component={About}/>
               <Route path='/' component={HomeScreen}/>

@@ -53,7 +53,7 @@ export default class Navbar extends React.Component {
           </div>
 
           <div className="modal fade" id="signinModal" role="dialog" aria-labelledby="SigninModal" aria-hidden="true">
-            <div className="modal-dialog" role="document">
+            <div className="modal-dialog modal-dialog-centered" role="document">
               <div className="modal-content">
                 <div className="modal-header">
                   <h5 className="modal-title justify" id="signinModalLabel">Sign In</h5>

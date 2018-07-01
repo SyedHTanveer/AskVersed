@@ -182,7 +182,6 @@ export default class Advisors extends React.Component<{}, any>  {
               <div className="modal-header justify-content-center">
                 <h3 className="modal-title justify" id="advisorModalLabel">{this.state.selected_advisor._source.name}</h3>
                 <h5 className="m-0 ml-auto mt-auto mb-auto font-italic">{this.state.selected_advisor._source.city + ", " + this.state.selected_advisor._source.state}</h5>
-
                 <button type="button" className="close ml-0" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
