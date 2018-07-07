@@ -1,6 +1,6 @@
 .fn-icon {
     padding-top: 12px;
-    font-size: 110px;
+    font-size: 115px;
 }
 
 .timeline {
@@ -61,7 +61,7 @@
     z-index: 100;
     position: absolute;
     left: 50%;
-    border: 7px solid #165f99;
+    border: 3px solid #165f99;
     border-radius: 100%;
     background-color: white;
     color: #165f99;
@@ -132,7 +132,7 @@
     top: 110px;
     bottom: 0;
     left: 700px;
-    width: 4px;
+    width: 3px;
     height:300px;
     background-color: #165f99;
     -ms-transform: rotate(-44deg); /* IE 9 */
@@ -146,7 +146,7 @@
     top: 60px;
     bottom: 0;
     left: 450px;
-    width: 4px;
+    width: 3px;
     height:340px;
     background-color: #165f99;
     -ms-transform: rotate(44deg); /* IE 9 */

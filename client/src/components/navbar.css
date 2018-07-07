@@ -2,6 +2,10 @@
   max-height: 35px;
 }
 
+.modal-backdrop {
+  z-index: -1;
+}
+
 nav .btn{
   border-radius: 50px;
 }
