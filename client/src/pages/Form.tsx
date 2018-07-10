@@ -23,8 +23,9 @@ export default class Form extends React.Component<{}, any>{
     	]
     }
   }
-  public render() {
-  	return this.state.questions.map( (obj: any)=> 
+
+  public render() 
+{  	return this.state.questions.map( (obj: any)=> 
   		{
   			const question = <p key={obj.key}>{obj.key}</p>
   			let field;

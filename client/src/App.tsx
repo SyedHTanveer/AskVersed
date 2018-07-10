@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import About from './pages/About';
 import Advisors from './pages/Advisor';
+import AdvisorForm from './pages/AdvisorForm';
 import Form from './pages/Form';
 import HomeScreen from './pages/HomeScreen';
 import Login from './pages/Login-components/login';
@@ -37,6 +38,7 @@ class App extends React.Component {
             <Route exact={true} path='/login' component={Login}/>
             <Route exact={true} path='/advisors' component={Advisors}/>
             <Route exact={true} path='/about' component={About}/>
+            <Route exact={true} path='/advisorform' component={AdvisorForm}/>
             <Route exact={true} path='/form' component={Form}/>
             <Route exact={true} path='/' component={HomeScreen}/>
           </Switch>
