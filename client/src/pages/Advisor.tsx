@@ -48,7 +48,7 @@ export default class Advisors extends React.Component<{}, any>  {
             "Volleyball"
           ],
           "highschool": [
-            "Helping your child identify his/her interests",
+            "Helping your child identify his/her interests", 
             "Choosing classes",
             "Managing honors/AP class load",
             "Study habits and organizational skills",
@@ -66,7 +66,7 @@ export default class Advisors extends React.Component<{}, any>  {
     this.setSelectedAdvisor = this.setSelectedAdvisor.bind(this);
     this.showCards = this.showCards.bind(this);
   }
-
+  
   public componentDidMount() {
     fetch("http://localhost:8000/search", {
       body: JSON.stringify({
@@ -85,6 +85,7 @@ export default class Advisors extends React.Component<{}, any>  {
         this.setState({ advisors: json.hits.hits, selected_advisor: json.hits.hits[0], rows: json.hits.hits.length % 3 });
       });
   }
+
 
   public setSelectedAdvisor(element: any) {
     // tslint:disable-next-line:no-console
