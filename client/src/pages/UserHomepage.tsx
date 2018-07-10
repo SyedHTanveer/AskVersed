@@ -46,7 +46,7 @@ export default class UserHomepage extends React.Component<{},any> {
       <div>
         <div className="container">
           <div className="row">
-            <h1 className="col-12 text-left pt-5 pl-4 ml-4">Welcome {this.state.userName}!</h1>
+            <h2 className="col-12 text-left pt-5 pl-4 ml-4">Welcome {this.state.userName}!</h2>
             <div className="d-flex flex-row col-12 mt-5">
               <div className="col-3 mb-5 pb-5">
                 <UserNav
