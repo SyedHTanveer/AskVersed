@@ -1,6 +1,8 @@
 import * as React from "react";
 
 /* All components for homepages  */
+import Footer from '../components/footer';
+import Navbar from '../components/navbar';
 import AboutJumbotron from './About-components/about_jumbotron';
 import FoundingStory from './About-components/FoundingStory';
 import OurVision from './About-components/OurVision';
@@ -9,11 +11,11 @@ import UseInfo from './About-components/UseInfo';
 import WhoWeAre from './About-components/WhoWeAre';
 
 
-
 export default class About extends React.Component {
   public render() {
     return (
       <div>
+      <Navbar />
         <div>
           <AboutJumbotron />
         </div>
@@ -32,6 +34,7 @@ export default class About extends React.Component {
         <div>
           <UseInfo />
         </div>
+        <Footer />
       </div>
     );
   }
