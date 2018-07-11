@@ -28,7 +28,7 @@ export default class SearchBar extends React.Component <ISearchProps, {value: st
       this.props.search(this.state.value);
     }
   }
-  
+
   public render() {
     return(
       <div className ="container pt-5">

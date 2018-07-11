@@ -31,60 +31,28 @@ export default class Navbar extends React.Component {
 
 
                 <li className="nav-item p-2 d-none d-md-inline" style={{ textDecoration: 'none' }}>
-                    <button className="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#signinModal">Log In</button>
+                  <Link to="/login" style={{ textDecoration: 'none' }}>
+                  <button className="btn btn-sm btn-outline-secondary btn-navbar">Log In</button>
+                  </Link>
                 </li>
                 <li className="nav-item p-2 d-md-none">
                   <Link to="/login" style={{ textDecoration: 'none' }}>
-                  <button className="btn btn-sm btn-outline-secondary btn-block px-5">Log In</button>
+                  <button className="btn btn-sm btn-outline-secondary btn-block px-5 btn-navbar">Log In</button>
                   </Link>
                 </li>
                   <li className="nav-item d-none d-md-inline">
                     <Link to="/signup" style={{ textDecoration: 'none' }}>
-                      <button className="btn btn-outline-primary" >Sign Up</button>
+                      <button className="btn btn-outline-primary btn-navbar" >Sign Up</button>
                     </Link>
                   </li>
                 <li className="nav-item p-2 d-md-none">
                   <Link to="/signup" style={{ textDecoration: 'none' }}>
-                      <button className="btn btn-sm btn-outline-primary btn-block px-5">Sign Up</button>
+                      <button className="btn btn-sm btn-outline-primary btn-block px-5 btn-navbar">Sign Up</button>
                   </Link>
                 </li>
               </ul>
             </div>
           </div>
-
-          <div className="modal fade" id="signinModal" role="dialog" aria-labelledby="SigninModal" aria-hidden="true">
-            <div className="modal-dialog modal-dialog-centered" role="document">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title justify" id="signinModalLabel">Sign In</h5>
-                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div className="modal-body">
-                  <form className="form-group">
-                    <div className="input-group my-3">
-                      <div className="input-group-prepend">
-                        <span className="input-group-text">@</span>
-                      </div>
-                      <input type="text" className="form-control" placeholder="versed@askversed.com"/>
-                    </div>
-                    <div className="input-group">
-                      <div className="input-group-prepend">
-                        <span className="input-group-text"><i className="fas fa-lock" /></span>
-                      </div>
-                      <input type="password" className="form-control" placeholder="Password"/>
-                    </div>
-                  </form>
-                </div>
-                <div className="modal-footer">
-                  <button type="button" className="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" className="btn btn-outline-primary">Log In</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
       </nav>
     )
   }

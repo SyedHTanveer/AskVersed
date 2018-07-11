@@ -1,7 +1,8 @@
 import * as React from 'react';
-import SearchBar from './Advisor-componenets/searchbar'
-
 import default_profile from '../assets/default_profile.jpg';
+import Footer from '../components/footer';
+import Navbar from '../components/navbar';
+import SearchBar from './Advisor-componenets/searchbar';
 
 export default class Advisors extends React.Component<{}, any>  {
 
@@ -48,7 +49,7 @@ export default class Advisors extends React.Component<{}, any>  {
             "Volleyball"
           ],
           "highschool": [
-            "Helping your child identify his/her interests",
+            "Helping your child identify his/her interests", 
             "Choosing classes",
             "Managing honors/AP class load",
             "Study habits and organizational skills",
@@ -66,7 +67,7 @@ export default class Advisors extends React.Component<{}, any>  {
     this.setSelectedAdvisor = this.setSelectedAdvisor.bind(this);
     this.showCards = this.showCards.bind(this);
   }
-
+  
   public componentDidMount() {
     fetch("http://localhost:8000/search", {
       body: JSON.stringify({
@@ -85,6 +86,7 @@ export default class Advisors extends React.Component<{}, any>  {
         this.setState({ advisors: json.hits.hits, selected_advisor: json.hits.hits[0], rows: json.hits.hits.length % 3 });
       });
   }
+
 
   public setSelectedAdvisor(element: any) {
     // tslint:disable-next-line:no-console
@@ -166,70 +168,74 @@ export default class Advisors extends React.Component<{}, any>  {
   public render() {
     return (
       <div>
-        <SearchBar
-          search={this.onSearch}/>
-        <div className="container">
-          <div className="block">
-              {
-                this.state.advisors.length > 0 ? this.showCards() : <div> No matching results. Try broadening your query. </div>
-              }
-            </div>
-        </div>
-
-        <div className="modal fade" id="advisorModal" role="dialog" aria-labelledby="advisorModal" aria-hidden="true">
-          <div className="modal-dialog modal-lg modal-dialog-centered" style={{"maxWidth": '80vw'}} role="document">
-            <div className="modal-content">
-              <div className="modal-header justify-content-center">
-                <h3 className="modal-title justify" id="advisorModalLabel">{this.state.selected_advisor._source.name}</h3>
-                <h5 className="m-0 ml-auto mt-auto mb-auto font-italic">{this.state.selected_advisor._source.city + ", " + this.state.selected_advisor._source.state}</h5>
-                <button type="button" className="close ml-0" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div className="modal-body">
-                <div><h4> Colleges </h4></div>
-                <div>
+        <Navbar />
+        <div>
+          <SearchBar
+            search={this.onSearch}/>
+          <div className="container">
+            <div className="block">
                 {
-                  this.state.selected_advisor._source.colleges.map((college: any, index: any) => {
-                    return (
-                      <div className="college font-weight-light" key={college}>{college}</div>
-                    )
-                  })
+                  this.state.advisors.length > 0 ? this.showCards() : <div> No matching results. Try broadening your query. </div>
                 }
               </div>
-                <h4>About Me</h4>
-                <p className="about font-weight-light">{
-                  this.state.selected_advisor._source.about
-                }</p>
-                <div><h4> Reach out for Advice on </h4> </div>
-                <div>
-                  {this.state.selected_advisor._source.admissions !== null && <div><h5>College Admissions Process</h5></div>}
-                {
-                  (this.state.selected_advisor._source.admissions !== null) ?
-                    this.state.selected_advisor._source.admissions.map(
-                      (admissions: any, index: any) => {
-                        return (<div key={index} className="font-weight-light"> <small> {admissions}</small></div>)
-                      }
-                    ) : (<div/>)
-                }
-                </div>
-                <div>
-                {this.state.selected_advisor._source.highschool && <div><h5> General High School Guidance</h5> </div>}
-                {
-                  this.state.selected_advisor._source.highschool ?
-                  this.state.selected_advisor._source.highschool.map((highschool: any, index: any) => {
-                    return (<div key={index} className="font-weight-light" ><small> {highschool}</small></div>)
-                  }) : <div/>}
-                </div>
-              </div>
-              <div className="modal-footer">
-                <button type="button" className="btn btn-outline-primary" data-dismiss="modal">close</button>
-              </div>
-            </div>
           </div>
+
+          <div className="modal fade" id="advisorModal" role="dialog" aria-labelledby="advisorModal" aria-hidden="true">
+            <div className="modal-dialog modal-lg modal-dialog-centered" style={{"maxWidth": '80vw'}} role="document">
+              <div className="modal-content">
+                <div className="modal-header justify-content-center">
+                  <h3 className="modal-title justify" id="advisorModalLabel">{this.state.selected_advisor._source.name}</h3>
+                  <h5 className="m-0 ml-auto mt-auto mb-auto font-italic">{this.state.selected_advisor._source.city + ", " + this.state.selected_advisor._source.state}</h5>
+                  <button type="button" className="close ml-0" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div className="modal-body">
+                  <div><h4> Colleges </h4></div>
+                  <div>
+                  {
+                    this.state.selected_advisor._source.colleges.map((college: any, index: any) => {
+                      return (
+                        <div className="college font-weight-light" key={college}>{college}</div>
+                      )
+                    })
+                  }
+                </div>
+                  <h4>About Me</h4>
+                  <p className="about font-weight-light">{
+                    this.state.selected_advisor._source.about
+                  }</p>
+                  <div><h4> Reach out for Advice on </h4> </div>
+                  <div>
+                    {this.state.selected_advisor._source.admissions !== null && <div><h5>College Admissions Process</h5></div>}
+                  {
+                    (this.state.selected_advisor._source.admissions !== null) ?
+                      this.state.selected_advisor._source.admissions.map(
+                        (admissions: any, index: any) => {
+                          return (<div key={index} className="font-weight-light"> <small> {admissions}</small></div>)
+                        }
+                      ) : (<div/>)
+                  }
+                  </div>
+                  <div>
+                  {this.state.selected_advisor._source.highschool && <div><h5> General High School Guidance</h5> </div>}
+                  {
+                    this.state.selected_advisor._source.highschool ?
+                    this.state.selected_advisor._source.highschool.map((highschool: any, index: any) => {
+                      return (<div key={index} className="font-weight-light" ><small> {highschool}</small></div>)
+                    }) : <div/>}
+                  </div>
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-outline-primary" data-dismiss="modal">close</button>
+                </div>
+              </div>
+            </div>
+            }
           }
-        }
+          </div>
         </div>
+        <Footer />
       </div>
     )
   }
