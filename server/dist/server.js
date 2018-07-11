@@ -5,6 +5,8 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const elasticsearch = require("elasticsearch");
+const db = require('./init_db');
+console.log("this is db: " + db);
 const client = new elasticsearch.Client({ host: 'localhost:9200', log: 'trace' });
 client.indices.exists({ index: "advisors" })
     .then(() => client.indices.delete({ index: "advisors" }))
@@ -232,9 +234,6 @@ app.post('/search', (req, res) => {
                 }
             }).then((q) => res.send(q));
     }
-    //  } else {
-    //  return res.sendStatus(404);
-    //  }
 });
 app.listen(port, () => console.log(`server listening on port ${port}`));
 //# sourceMappingURL=server.js.map

@@ -6,7 +6,7 @@ import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
 
 import * as elasticsearch from 'elasticsearch';
-
+const db = require('./init_db');
 
 const client = new elasticsearch.Client({ host: 'localhost:9200', log: 'trace' });
 
@@ -243,13 +243,19 @@ app.post('/search', (req: Request, res: Response) => {
           },
         }
       }).then((q: any) => res.send(q))
-
       ;
   }
-  //  } else {
-
-  //  return res.sendStatus(404);
-  //  }
 });
+
+app.post('/newParent', (req: Request, res: Response) => {
+
+
+});
+
+
+
+
+
+
 
 app.listen(port, () => console.log(`server listening on port ${port}`));
