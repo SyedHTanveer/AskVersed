@@ -1,17 +1,10 @@
-import update from 'immutability-helper';
-import * as React from "react";
-
-
-export default class Form extends React.Component<{}, any>{
-  public constructor(props: any) {
-    super(props);
-    this.state = {
+﻿module.exports = {
     	answered: [
     		[],
     		[],
     		[]
     	],
-    	page: 0,
+    	page: 1,
     	page_max: 2,
     	questions: [
     		[
@@ -162,78 +155,3 @@ export default class Form extends React.Component<{}, any>{
 	    	]
     	]
     }
-  }
-  
-  
-
-  public handleSubmit = (event: any) =>{
-  	// tslint:disable-next-line:no-console
-  	console.log(event);
-  	event.persist();
-  	event.preventDefault();
-  	
-  	this.setState({
-  		answered: update(this.state.answered, {[this.state.page]: {$set: event}})
-  	});
-  	
-  }
-
-  public nextPage = () =>{
-  	// tslint:disable-next-line:no-console
-  	console.log("Before: "+this.state.page);
-  	this.setState({
-  		page: (this.state.page < this.state.page_max) ? this.state.page + 1 : 0 
-  	});
-  	// tslint:disable-next-line:no-console
-  	console.log("After: "+this.state.page);
-  	this.render();
-  }
-
-  public render() 
-{  	
-	return(
-		<form onSubmit={this.handleSubmit}>
-		{this.state.questions[0].map( (obj: any)=> 
-	  		{
-	  			const question = <label key={obj.id+"_label"}>{obj.question}</label>
-	  			let field;
-		  		switch(obj.type){
-		  			case 'text':
-		  				field = [<input key={obj.id} type="text"/>]
-		  				break;
-	  				case 'dropdown':
-	  					const options = obj.values.map((val: any) =>
-	  						<option key={val} value={val}>{val}</option> 
-	  					);
-	  					field = [<select key={obj.id}>,{options},</select>];
-	  					
-	  					break;
-					case 'checkbox':
-						field = obj.values.map((val: any) => 
-							<div key={val+"_div"} id={obj.id+"_div"}>
-							<input key={obj.id+"|"+val} type="checkbox" id={val} value={val} />
-							<label htmlFor={val}>{val}</label>
-							</div>
-						);
-						break;
-		  			default:
-		  				return <div>ERROR</div>
-		  		}
-		  		return(
-		  			<div key={obj.id+"_div"}>
-		  				{question}
-		  				<br/>
-		  				{field}
-		  				<br/>
-		  				<br/>
-		  			</div>
-
-		  		);
-	  		}
-	  	)
-		}
-		<input type="submit" value="Submit" />
-	  	</form>
-	);
-  }
-}
