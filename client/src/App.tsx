@@ -11,7 +11,7 @@ import UserHome from './pages/UserHomepage';
 
 
 class App extends React.Component {
-  /*
+
    public componentWillMount() {
    fetch("http://localhost:8000/");
    fetch("http://localhost:8000/auth", {
@@ -27,7 +27,7 @@ class App extends React.Component {
      });
    })
 }
-*/
+
 
   public render() {
     return (

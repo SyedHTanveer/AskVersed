@@ -50,7 +50,7 @@ export default class UserHomepage extends React.Component<{},any> {
             <div className="d-flex flex-row col-12 mt-5">
               <div className="col-3 mb-5 pb-5">
                 <UserNav
-                  handleClick = {this.handleClick}
+                  handleClick = {this.handleClick}  
                 />
               </div>
               <div className="col-9">

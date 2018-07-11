@@ -2,6 +2,16 @@ import * as React from "react";
 import './userhome.css';
 
 export default class UserHome extends React.Component {
+  public constructor(props: any) {
+    super(props);
+    this.state = {
+      email: "",
+      password: ""
+    }
+  }
+  public componentWillMount() {
+    fetch("")
+  }
   public render() {
     return (
       <div id="accordion" role="tablist">
