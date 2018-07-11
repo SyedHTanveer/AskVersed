@@ -34,6 +34,8 @@ const Parent = sequelize.define('parent', {
   }
 });
 
+Parent.sync({force: true});
+
 const Advisor = sequelize.define('advisor', {
     a_id: {
       type: Sequelize.BIGINT,
@@ -102,8 +104,12 @@ const Advisor = sequelize.define('advisor', {
       type: Sequelize.TEXT
     }
 });
+
+Advisor.sync({force: true});
+
 interface parent {p_id: any, children: any, username: any, password: any, salt: any, is_admin: any, is_advisor: any, active: any};
 const createNewParent = ({p_id, children, username, password, salt, is_admin, is_advisor, active} : any, cb: Function) => {
+  console.log("username" + username);
   Parent.create({
     p_id,
     children,
@@ -143,13 +149,23 @@ const createNewAdvisor = ({a_id, p_id, students, name, state, city, advice_colle
 const updateAdvisor = (adv_info: any, cb: Function) => {
   Advisor.update({
     ...adv_info,
-
   }, {
     where: {
       a_id: adv_info.a_id
     }
-  });
+  }).then( (adv: any ) => cb(adv));
 }
+
+const updateParent = (parent_info: any, cb: Function) => {
+  Parent.update({
+    ...parent_info,
+  }, {
+    where: {
+      p_id: parent_info.p_id
+    }
+  }).then( (adv: any ) => cb(adv));
+}
+
 
 const getAdvisor = (a_id: String, cb: Function) => {
   Advisor.findOne({
@@ -159,4 +175,12 @@ const getAdvisor = (a_id: String, cb: Function) => {
   }).then( (adv: any) => cb(adv));
 }
 
-module.exports = {sequelize, Advisor, Parent};
+const getParent = (p_id: String, cb: Function) => {
+  Parent.findOne({
+    where: {
+      p_id
+    }
+  }).then((parent: any) => cb(parent));
+}
+
+module.exports = {sequelize, Advisor, Parent, createNewParent, createNewAdvisor, updateAdvisor, getAdvisor, getParent};

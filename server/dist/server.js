@@ -6,7 +6,6 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const elasticsearch = require("elasticsearch");
 const db = require('./init_db');
-console.log("this is db: " + db);
 const client = new elasticsearch.Client({ host: 'localhost:9200', log: 'trace' });
 client.indices.exists({ index: "advisors" })
     .then(() => client.indices.delete({ index: "advisors" }))
@@ -171,6 +170,7 @@ app.post('/auth', (req, res) => {
 });
 app.post('/advisors', (req, res) => {
     console.log("received '/advisors' POST request");
+    db.createNewAdvisor();
     client.create({
         index: 'users',
         type: 'advisor',
@@ -234,6 +234,27 @@ app.post('/search', (req, res) => {
                 }
             }).then((q) => res.send(q));
     }
+});
+app.post('/newParent', (req, res) => {
+    console.log(req.body);
+    db.createNewParent(req.body, (ret) => {
+        res.send(ret);
+    });
+});
+app.post('/newAdvisor', (req, res) => {
+    db.createNewAdvisor(req.body, (ret) => {
+        res.send(ret);
+    });
+});
+app.put('/newAdvisor', (req, res) => {
+    db.updateAdvisor(req.body, (ret) => {
+        res.send(ret);
+    });
+});
+app.put('/newParent', (req, res) => {
+    db.updateParent(req.body, (ret) => {
+        res.send(ret);
+    });
 });
 app.listen(port, () => console.log(`server listening on port ${port}`));
 //# sourceMappingURL=server.js.map
