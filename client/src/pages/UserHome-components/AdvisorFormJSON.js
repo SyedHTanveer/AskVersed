@@ -1,10 +1,37 @@
 ﻿module.exports = {
     	answered: [
-    		[],
-    		[],
-    		[]
+    		{
+    			"city":"",
+    			"country":"",
+    			"description":"",
+    			"languages":"",
+    			"languages_other":"",
+    			"mailing_address":"",
+    			"name":"",
+    			"phone_number":"",
+    			"state":""
+    
+    			
+    			
+
+    		},
+    		{
+    			"advice_college_admissions_process":"",
+    			"advice_college_admissions_process_other":"",
+    			"advice_general_hs_guidance":"",
+    			"advice_general_hs_guidance_other":"",
+    			"advice_specific_hs_guidance":"",
+    			"advice_specific_hs_guidance_other":"",
+    			"hs_academic_ec_interests":"",
+    			"sports":"",
+    			"sports_other":""
+    		},
+    		{
+    			"charge_30":"",
+    			"charge_60":""
+    		}
     	],
-    	page: 1,
+    	page: 0,
     	page_max: 2,
     	questions: [
     		[

@@ -22,19 +22,19 @@ export default class Form extends React.Component<any, any>{
 	  			let field;
 		  		switch(obj.type){
 		  			case 'text':
-		  				field = [<input key={obj.id} type="text"/>]
+		  				field = [<input onChange={this.props.handleChange} key={obj.id} id={obj.id} type="text"/>]
 		  				break;
 	  				case 'dropdown':
 	  					const options = obj.values.map((val: any) =>
 	  						<option key={val} value={val}>{val}</option> 
 	  					);
-	  					field = [<select key={obj.id}>,{options},</select>];
+	  					field = [<select onChange={this.props.handleChange} key={obj.id} id={obj.id}>,{options},</select>];
 	  					
 	  					break;
 					case 'checkbox':
 						field = obj.values.map((val: any) => 
 							<div key={val+"_div"} id={obj.id+"_div"}>
-							<input key={obj.id+"|"+val} type="checkbox" id={val} value={val} />
+							<input onChange={this.props.handleChange} key={obj.id+"|"+val} id={obj.id+"|"+val} type="checkbox" value={val} />
 							<label htmlFor={val}>{val}</label>
 							</div>
 						);
