@@ -59,25 +59,38 @@ export default class UserHomepage extends React.Component<any,any> {
     // tslint:disable-next-line:no-console
     console.log(event);
     // tslint:disable-next-line:no-console
-    console.log(event.target);
     // tslint:disable-next-line:no-console
-    console.log(event.target.value);
-    // tslint:disable-next-line:no-console
-    console.log(event.target.id);
+    // console.log(event.target.value);
+    
 
-    
-    this.setState({
-      advisor_answered: update(this.state.advisor_answered, {
-        [this.state.advisor_page]:{
-          [event.target.id]:{ 
-            $set: event.target.value
+    if(!Array.isArray(event)){
+      this.setState({
+        advisor_answered: update(this.state.advisor_answered, {
+          [this.state.advisor_page]:{
+            [event.target.id]:{ 
+              $set: event.target.value
+            }
           }
-        }
-      })
-    });
-    
+        })
+      });
+    }
+    else{
+      this.setState({
+        advisor_answered: update(this.state.advisor_answered, {
+          [this.state.advisor_page]:{
+            [event[0].value]:{ 
+              $push: event
+            }
+          }
+        })
+      });  
+      // tslint:disable-next-line:no-console
+      console.log(event[0].value);
+    }
+
     // tslint:disable-next-line:no-console
-    console.log(this.state.advisor_answered);
+    console.log(this.state);
+    
 
   }
 

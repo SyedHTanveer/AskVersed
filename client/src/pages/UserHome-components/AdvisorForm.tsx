@@ -1,5 +1,6 @@
 import * as React from "react";
-
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
 
 export default class Form extends React.Component<any, any>{
   public constructor(props: any) {
@@ -32,12 +33,29 @@ export default class Form extends React.Component<any, any>{
 	  					
 	  					break;
 					case 'checkbox':
+						/*
 						field = obj.values.map((val: any) => 
 							<div key={val+"_div"} id={obj.id+"_div"}>
 							<input onChange={this.props.handleChange} key={obj.id+"|"+val} id={obj.id+"|"+val} type="checkbox" value={val} />
 							<label htmlFor={val}>{val}</label>
 							</div>
 						);
+						*/
+						const FormOptions = obj.values.map((val: any) => {
+							return {value: obj.id, label: val}
+						});
+						// tslint:disable-next-line:no-console
+						console.log("SELECT");
+						// tslint:disable-next-line:no-console
+						console.log(FormOptions);
+						field = [<Select
+					        key={obj.id}
+					        name={obj.id}
+					        value={this.props.data.advisor_answered[this.props.data.advisor_page][obj.id]}
+					        onChange={this.props.handleChange}
+					        options={FormOptions}
+					        multi={true}
+					      />]
 						break;
 		  			default:
 		  				return <div>ERROR</div>

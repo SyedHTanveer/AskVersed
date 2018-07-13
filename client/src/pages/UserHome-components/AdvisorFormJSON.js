@@ -4,7 +4,7 @@
     			"city":"",
     			"country":"",
     			"description":"",
-    			"languages":"",
+    			"languages":[],
     			"languages_other":"",
     			"mailing_address":"",
     			"name":"",
