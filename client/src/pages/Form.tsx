@@ -24,7 +24,7 @@ export default class Form extends React.Component<{}, any>{
     }
   }
   public render() {
-  	return this.state.questions.map( (obj: any)=> 
+  	return this.state.questions.map( (obj: any)=>
   		{
   			const question = <p key={obj.key}>{obj.key}</p>
   			let field;
@@ -37,10 +37,10 @@ export default class Form extends React.Component<{}, any>{
 	  				break;
   				case 'dropdown':
   					const options = obj.values.map((val: any) =>
-  						<option key={val} value={val}>{val}</option> 
+  						<option key={val} value={val}>{val}</option>
   					);
   					field = [<select key="select">,{options},</select>];
-  					
+
   					break;
 				case 'checkbox':
 					field = obj.values.map((val: any) => 

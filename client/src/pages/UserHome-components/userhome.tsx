@@ -16,8 +16,8 @@ export default class UserHome extends React.Component {
 
           <div id="collapseOne" className="collapse show" role="tabpanel" aria-labelledby="headingOne">
             <div className="card-body">
-              UserName
-              Password
+              <div>Email: </div>
+              <div>Password: </div>
             </div>
           </div>
         </div>
@@ -31,10 +31,9 @@ export default class UserHome extends React.Component {
             </h5>
           </div>
 
-          <div id="collapseTwo" className="collapse show" role="tabpanel" aria-labelledby="headingTwo">
+          <div id="collapseTwo" className="collapse hide" role="tabpanel" aria-labelledby="headingTwo">
             <div className="card-body">
-              UserName
-              Password
+              Upload photo form here
             </div>
           </div>
         </div>

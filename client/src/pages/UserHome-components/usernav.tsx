@@ -22,7 +22,7 @@ export default class UserNav extends React.Component<IHandleProps, {}, any>  {
         <img className="card-img-top" src={defaultProfile} alt="Card image cap" />
         <div className="list-group list-group-flush btn-group-vertical card mt-4">
           <button name="home" className="btn btn-outline-secondary list-group-item" onClick={this.navClick}>Home</button>
-          <button name="personal" className="btn btn-outline-secondary list-group-item" onClick={this.navClick}>Personal Information</button>
+          <button name="student" className="btn btn-outline-secondary list-group-item" onClick={this.navClick}>Student Information</button>
           <button name="advisor" className="btn btn-outline-secondary list-group-item" onClick={this.navClick}>Advisor</button>
         </div>
       </nav>
