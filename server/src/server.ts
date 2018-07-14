@@ -274,7 +274,7 @@ app.put('/newParent', (req: Request, res: Response) => {
 });
 
 app.post('/parentInfo', (req: Request, res: Response) => {
-  db.getParent(req.body, (ret:any) => res.send(ret));
+  db.getParent(req.body.email, (ret:any) => res.send(ret));
 });
 
 

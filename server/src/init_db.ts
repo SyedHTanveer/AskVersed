@@ -175,10 +175,10 @@ const getAdvisor = (a_id: String, cb: Function) => {
   }).then( (adv: any) => cb(adv));
 }
 
-const getParent = (p_id: String, cb: Function) => {
+const getParent = (email: String, cb: Function) => {
   Parent.findOne({
     where: {
-      p_id
+      username: email
     }
   }).then((parent: any) => cb(parent));
 }

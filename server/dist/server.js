@@ -256,5 +256,8 @@ app.put('/newParent', (req, res) => {
         res.send(ret);
     });
 });
+app.post('/parentInfo', (req, res) => {
+    db.getParent(req.body, (ret) => res.send(ret));
+});
 app.listen(port, () => console.log(`server listening on port ${port}`));
 //# sourceMappingURL=server.js.map
