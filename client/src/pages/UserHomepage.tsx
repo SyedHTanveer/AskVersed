@@ -12,7 +12,7 @@ import UserPersonal from './UserHome-components/userpersonal';
 
 
 
-export default class UserHomepage extends React.Component<{},any> {
+export default class UserHomepage extends React.Component<any,any> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -47,10 +47,51 @@ export default class UserHomepage extends React.Component<{},any> {
     else if (name==='advisor') {
       this.setState(
         {
-          page: <AdvisorForm data={this.state} handleSubmit={this.handleSubmit} handleNextPage={this.handleNextPage}/>
+          page: <AdvisorForm data={this.state} handleSubmit={this.handleSubmit} handleNextPage={this.handleNextPage} handleChange={this.handleChange}/>
         }
       )
     }
+  }
+
+  public handleChange = (event: any) =>{
+    // tslint:disable-next-line:no-console
+    console.log("********");
+    // tslint:disable-next-line:no-console
+    console.log(event);
+    // tslint:disable-next-line:no-console
+    // tslint:disable-next-line:no-console
+    // console.log(event.target.value);
+    
+
+    if(!Array.isArray(event)){
+      this.setState({
+        advisor_answered: update(this.state.advisor_answered, {
+          [this.state.advisor_page]:{
+            [event.target.id]:{ 
+              $set: event.target.value
+            }
+          }
+        })
+      });
+    }
+    else{
+      this.setState({
+        advisor_answered: update(this.state.advisor_answered, {
+          [this.state.advisor_page]:{
+            [event[0].value]:{ 
+              $push: event
+            }
+          }
+        })
+      });  
+      // tslint:disable-next-line:no-console
+      console.log(event[0].value);
+    }
+
+    // tslint:disable-next-line:no-console
+    console.log(this.state);
+    
+
   }
 
   public handleSubmit = (event: any) =>{
