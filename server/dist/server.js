@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const elasticsearch = require("elasticsearch");
 const db = require('./init_db');
+db.sequelize.sync({ force: true });
 const client = new elasticsearch.Client({ host: 'localhost:9200', log: 'trace' });
 client.indices.exists({ index: "advisors" })
     .then(() => client.indices.delete({ index: "advisors" }))
@@ -257,7 +258,7 @@ app.put('/newParent', (req, res) => {
     });
 });
 app.post('/parentInfo', (req, res) => {
-    db.getParent(req.body, (ret) => res.send(ret));
+    db.getParent(req.body.email, (ret) => res.send(ret));
 });
 app.listen(port, () => console.log(`server listening on port ${port}`));
 //# sourceMappingURL=server.js.map

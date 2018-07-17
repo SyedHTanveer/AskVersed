@@ -7,7 +7,7 @@ import * as cors from 'cors';
 
 import * as elasticsearch from 'elasticsearch';
 const db = require('./init_db');
-
+db.sequelize.sync({force: true});
 const client = new elasticsearch.Client({ host: 'localhost:9200', log: 'trace' });
 
 client.indices.exists({ index: "advisors" })
