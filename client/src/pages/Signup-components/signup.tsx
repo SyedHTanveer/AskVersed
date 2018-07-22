@@ -33,6 +33,19 @@ export default class Signup extends React.Component<{}, any> {
     if(this.state.password === this.state.verifyPassword && (this.state.password.length >= 8)){
       // tslint:disable-next-line:no-console
       console.log("Password: " + this.state.password + "\n" + "Verify: " + this.state.verifyPassword);
+      fetch("http://localhost:8000/newParent", {
+        body: JSON.stringify({
+          password: this.state.password,
+          username: this.state.email
+        }),
+        credentials: 'include',
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+        },
+        method:"POST",
+
+        // tslint:disable-next-line:no-console
+      }).then((val) => console.log(val));
       return {...<Redirect to='/userHomepage' />};
     } else {
       // tslint:disable-next-line:no-console

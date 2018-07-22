@@ -6,6 +6,7 @@ import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
 
 import * as elasticsearch from 'elasticsearch';
+const db = require('./init_db');
 
 const client = new elasticsearch.Client({ host: 'localhost:9200', log: 'trace' });
 
@@ -180,6 +181,7 @@ app.post('/auth', (req: Request, res: Response) => {
 
 app.post('/advisors', (req: Request, res: Response) => {
   console.log("received '/advisors' POST request");
+  db.createNewAdvisor()
   client.create({
     index: 'users',
     type: 'advisor',
@@ -242,13 +244,38 @@ app.post('/search', (req: Request, res: Response) => {
           },
         }
       }).then((q: any) => res.send(q))
-
       ;
   }
-  //  } else {
-
-  //  return res.sendStatus(404);
-  //  }
 });
+
+app.post('/newParent', (req: Request, res: Response) => {
+  console.log(req.body);
+  db.createNewParent(req.body, (ret: any) => {
+    res.send(ret);
+  });
+});
+
+app.post('/newAdvisor', (req: Request, res:Response) => {
+  db.createNewAdvisor(req.body, (ret:any) => {
+    res.send(ret);
+  });
+});
+
+app.put('/newAdvisor', (req: Request, res:Response) => {
+    db.updateAdvisor(req.body, (ret: any) => {
+      res.send(ret);
+    });
+});
+
+app.put('/newParent', (req: Request, res: Response) => {
+  db.updateParent(req.body, (ret: any) => {
+    res.send(ret);
+  });
+});
+
+app.post('/parentInfo', (req: Request, res: Response) => {
+  db.getParent(req.body.email, (ret:any) => res.send(ret));
+});
+
 
 app.listen(port, () => console.log(`server listening on port ${port}`));

@@ -1,7 +1,28 @@
 import * as React from "react";
 import './userhome.css';
 
-export default class UserHome extends React.Component {
+export default class UserHome extends React.Component <any, any> {
+  public constructor(props: any) {
+    super(props);
+    this.state = {
+      email: "",
+      password: ""
+    }
+  }
+  public componentWillMount() {
+    fetch("http://localhost:8000/newParent", {
+      body: JSON.stringify({
+        email: "littlefe2000@gmail.com"
+      }),
+      credentials: 'include',
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+      method:"POST",
+
+      // tslint:disable-next-line:no-console
+    }).then((val) => console.log(val));
+  }
   public render() {
     return (
       <div id="accordion" role="tablist">
@@ -16,8 +37,8 @@ export default class UserHome extends React.Component {
 
           <div id="collapseOne" className="collapse show" role="tabpanel" aria-labelledby="headingOne">
             <div className="card-body">
-              <div>Email: </div>
-              <div>Password: </div>
+              {this.state.email}
+              {this.state.password}
             </div>
           </div>
         </div>
