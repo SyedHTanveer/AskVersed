@@ -1,30 +1,9 @@
 import * as React from "react";
 
 export default class Form extends React.Component<{}, any>{
-  public constructor(props: any) {
-    super(props);
-    this.state = {
-    	questions: [
-	    	{
-	    		key: "What year did you graduate HS?",
-	    		type: "text",
-	    		values: []
-	    	},
-	    	{
-	    		key: "What type of HS did you go to?",
-	    		type: "dropdown",
-	    		values: ["Public","Private Day School","Private Boarding School"]
-	    	},
-	    	{
-	    		key: "Which sports have you played?",
-	    		type: "radio",
-	    		values: ["Baseball","Football","Basketball","Squash"]
-	    	}
-    	]
-    }
-  }
+
   public render() {
-  	return this.state.questions.map( (obj: any)=>
+    return this.state.questions.map( (obj: any)=>
   		{
   			const question = <p key={obj.key}>{obj.key}</p>
   			let field;
@@ -43,7 +22,7 @@ export default class Form extends React.Component<{}, any>{
 
   					break;
 				case 'checkbox':
-					field = obj.values.map((val: any) => 
+					field = obj.values.map((val: any) =>
 						<div key={val}>
 						<input key={obj.type} type="checkbox" id={val} value={val} />
 						<label htmlFor={val}>{val}</label>
