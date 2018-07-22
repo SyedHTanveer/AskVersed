@@ -47,7 +47,7 @@ export default class UserHomepage extends React.Component<any,any> {
     else if (name==='advisor') {
       this.setState(
         {
-          page: <AdvisorForm data={this.state} handleSubmit={this.handleSubmit} handleNextPage={this.handleNextPage} handleChange={this.handleChange}/>
+          page: <AdvisorForm data={this.state} page={this.state.advisor_page} handleSubmit={this.handleSubmit} handleNextPage={this.handleNextPage} handleChange={this.handleChange}/>
         }
       )
     }
@@ -88,8 +88,6 @@ export default class UserHomepage extends React.Component<any,any> {
       console.log(event[0].value);
     }
 
-    // tslint:disable-next-line:no-console
-    console.log(this.state);
     
 
   }
@@ -107,11 +105,11 @@ export default class UserHomepage extends React.Component<any,any> {
   }
 
   public handleNextPage = () =>{
-    // tslint:disable-next-line:no-console
-    console.log("Before: "+this.state.advisor_page);
     this.setState({
-      advisor_page: (this.state.advisor_page < this.state.advisor_page_max) ? this.state.advisor_page + 1 : 0
+      advisor_page: (this.state.advisor_page < this.state.advisor_page_max) ? this.state.advisor_page + 1 : 0,
+      page: <AdvisorForm data={this.state} page={this.state.advisor_page} handleSubmit={this.handleSubmit} handleNextPage={this.handleNextPage} handleChange={this.handleChange}/>
     });
+    
   }
 
   public render() {
