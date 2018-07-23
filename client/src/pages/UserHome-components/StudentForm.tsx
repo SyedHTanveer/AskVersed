@@ -141,6 +141,9 @@ export default class Form extends React.Component<any, any>{
 					        multi={true}
 					      />]
 						break;
+            case 'textbox':
+              field = [<textarea key={obj.type}/>]
+              break;
 		  			default:
 		  				return <div>ERROR</div>
 		  		}
