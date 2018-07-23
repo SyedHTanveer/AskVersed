@@ -16,8 +16,6 @@ export default class Form extends React.Component<any, any>{
       
     }
   }
-  
-  
 
 
   public handleChange = (event: any) =>{
@@ -111,14 +109,15 @@ export default class Form extends React.Component<any, any>{
 		  				break;
 	  				case 'dropdown':
 	  					const options = obj.values.map((val: any) =>
-	  						<option key={val} value={val}>{val}</option> 
+	  						<option key={val} value={val}>{val}</option>
 	  					);
 	  					field = [<select onChange={this.handleChange} key={obj.id} id={obj.id}>,{options},</select>];
 	  					
+
 	  					break;
 					case 'checkbox':
 						/*
-						field = obj.values.map((val: any) => 
+						field = obj.values.map((val: any) =>
 							<div key={val+"_div"} id={obj.id+"_div"}>
 							<input onChange={this.props.handleChange} key={obj.id+"|"+val} id={obj.id+"|"+val} type="checkbox" value={val} />
 							<label htmlFor={val}>{val}</label>
