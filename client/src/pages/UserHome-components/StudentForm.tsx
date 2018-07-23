@@ -3,17 +3,18 @@ import * as React from "react";
 import Select from 'react-select';
 
 import 'react-select/dist/react-select.css';
-import * as AdvisorFormJSON from './AdvisorFormJSON.js';
+import * as StudentFormJSON from './StudentFormJSON.js';
+
 export default class Form extends React.Component<any, any>{
   public constructor(props: any) {
     super(props);
     // tslint:disable-next-line:no-console
     this.state = {
-      advisor_answered: AdvisorFormJSON.answered,
-      advisor_page: AdvisorFormJSON.page,
-      advisor_page_max: AdvisorFormJSON.page_max,
-      advisor_questions: AdvisorFormJSON.questions
-      
+      student_answered: StudentFormJSON.answered,
+      student_page: StudentFormJSON.page,
+      student_page_max: StudentFormJSON.page_max,
+      student_questions: StudentFormJSON.questions
+
     }
   }
 
@@ -26,13 +27,13 @@ export default class Form extends React.Component<any, any>{
     // tslint:disable-next-line:no-console
     // tslint:disable-next-line:no-console
     // console.log(event.target.value);
-    
+
 
     if(!Array.isArray(event)){
       this.setState({
-        advisor_answered: update(this.state.advisor_answered, {
-          [this.state.advisor_page]:{
-            [event.target.id]:{ 
+        student_answered: update(this.state.student_answered, {
+          [this.state.student_page]:{
+            [event.target.id]:{
               $set: event.target.value
             }
           }
@@ -41,29 +42,29 @@ export default class Form extends React.Component<any, any>{
     }
     else{
       // tslint:disable-next-line:no-console
-      console.log(this.state.advisor_answered);
+      console.log(this.state.student_answered);
       // tslint:disable-next-line:no-console
-      console.log(this.state.advisor_answered[this.state.advisor_page]);
+      console.log(this.state.student_answered[this.state.student_page]);
       // tslint:disable-next-line:no-console
-      console.log(this.state.advisor_answered[this.state.advisor_page][event[0].value]);
+      console.log(this.state.student_answered[this.state.student_page][event[0].value]);
       // tslint:disable-next-line:no-console
       console.log(event[0].value);
       // tslint:disable-next-line:no-console
-      console.log(this.state.advisor_page);
+      console.log(this.state.student_page);
       this.setState({
-        advisor_answered: update(this.state.advisor_answered, {
-          [this.state.advisor_page]:{
-            [event[0].value]:{ 
+        student_answered: update(this.state.student_answered, {
+          [this.state.student_page]:{
+            [event[0].value]:{
               $push: event
             }
           }
         })
-      });  
+      });
       // tslint:disable-next-line:no-console
       console.log(event[0].value);
     }
 
-    
+
 
   }
 
@@ -72,34 +73,34 @@ export default class Form extends React.Component<any, any>{
     console.log(event);
     event.persist();
     event.preventDefault();
-    
+
     this.setState({
-      advisor_answered: update(this.state.advisor_answered, {[this.state.advisor_page]: {$set: event}})
+      student_answered: update(this.state.student_answered, {[this.state.student_page]: {$set: event}})
     });
-    
+
   }
 
   public handleNextPage = () =>{
     this.setState({
-      advisor_page: (this.state.advisor_page < this.state.advisor_page_max) ? this.state.advisor_page + 1 : 0
+      student_page: (this.state.student_page < this.state.student_page_max) ? this.state.student_page + 1 : 0
     });
     // tslint:disable-next-line:no-console
-    console.log("Page: "+this.state.advisor_page);
+    console.log("Page: "+this.state.student_page);
     /*
     this.setState({
-      advisor_page: this.state.advisor_page,
-      page: <AdvisorForm data={this.state} page={this.state.advisor_page} handleSubmit={this.handleSubmit} handleNextPage={this.handleNextPage} handleChange={this.handleChange}/>
+      student_page: this.state.student_page,
+      page: <studentForm data={this.state} page={this.state.student_page} handleSubmit={this.handleSubmit} handleNextPage={this.handleNextPage} handleChange={this.handleChange}/>
     });
     */
   }
 
-  
 
-  public render() 
- {  	
+
+  public render()
+ {
 	return(
 		<form onSubmit={this.handleSubmit}>
-		{this.state.advisor_questions[this.state.advisor_page].map( (obj: any)=> 
+		{this.state.student_questions[this.state.student_page].map( (obj: any)=>
 	  		{
 	  			const question = <label key={obj.id+"_label"}>{obj.question}</label>
 	  			let field;
@@ -112,7 +113,7 @@ export default class Form extends React.Component<any, any>{
 	  						<option key={val} value={val}>{val}</option>
 	  					);
 	  					field = [<select onChange={this.handleChange} key={obj.id} id={obj.id}>,{options},</select>];
-	  					
+
 
 	  					break;
 					case 'checkbox':
@@ -134,7 +135,7 @@ export default class Form extends React.Component<any, any>{
 						field = [<Select
 					        key={obj.id}
 					        name={obj.id}
-					        value={this.state.advisor_answered[this.state.advisor_page][obj.id]}
+					        value={this.state.student_answered[this.state.student_page][obj.id]}
 					        onChange={this.handleChange}
 					        options={FormOptions}
 					        multi={true}

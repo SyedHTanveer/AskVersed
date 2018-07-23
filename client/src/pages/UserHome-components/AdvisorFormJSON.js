@@ -20,10 +20,10 @@
     			"advice_college_admissions_process_other":"",
     			"advice_general_hs_guidance":"",
     			"advice_general_hs_guidance_other":"",
-    			"advice_specific_hs_guidance":"",
+    			"advice_specific_hs_guidance":[],
     			"advice_specific_hs_guidance_other":"",
-    			"hs_academic_ec_interests":"",
-    			"sports":"",
+    			"hs_academic_ec_interests":[],
+    			"sports":[],
     			"sports_other":""
     		},
     		{

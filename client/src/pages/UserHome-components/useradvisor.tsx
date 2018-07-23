@@ -1,5 +1,5 @@
 import * as React from "react";
-import './userpersonal.css';
+import './useradvisor.css';
 
 export default class UserHome extends React.Component {
   public render() {
@@ -9,7 +9,7 @@ export default class UserHome extends React.Component {
           <div className="card-header" role="tab" id="headingOne">
             <h5 className="mb-0">
               <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Advisor
+                Advisor Information
               </a>
             </h5>
           </div>
