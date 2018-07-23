@@ -52,10 +52,9 @@ export default class UserHome extends React.Component <any, any> {
             </h5>
           </div>
 
-          <div id="collapseTwo" className="collapse show" role="tabpanel" aria-labelledby="headingTwo">
+          <div id="collapseTwo" className="collapse hide" role="tabpanel" aria-labelledby="headingTwo">
             <div className="card-body">
-              UserName
-              Password
+              Upload photo form here
             </div>
           </div>
         </div>

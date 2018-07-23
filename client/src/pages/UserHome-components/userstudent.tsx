@@ -1,10 +1,11 @@
 import * as React from "react";
-import './userpersonal.css';
+import './userstudent.css';
 
-export default class UserHome extends React.Component {
+export default class UserStudent extends React.Component {
   public render() {
     return (
       <div id="accordion" role="tablist">
+
         <div className="card">
           <div className="card-header" role="tab" id="headingOne">
             <h5 className="mb-0">
@@ -20,7 +21,6 @@ export default class UserHome extends React.Component {
             </div>
           </div>
         </div>
-
       </div>
     );
   }
