@@ -2,6 +2,7 @@ import * as React from "react";
 
 import update from 'immutability-helper';
 import Footer from '../components/footer';
+import Navbar from '../components/navbar';
 import AdvisorForm from './UserHome-components/AdvisorForm';
 import * as AdvisorFormJSON from './UserHome-components/AdvisorFormJSON.js';
 import StudentForm from './UserHome-components/StudentForm';
@@ -111,6 +112,7 @@ export default class UserHomepage extends React.Component<any,any> {
   public render() {
     return (
       <div>
+        <Navbar />
         <div className="container">
           <div className="row">
             <h2 className="col-12 text-left pt-5 pl-4 ml-4">Welcome back {this.state.userName}!</h2>
@@ -120,7 +122,7 @@ export default class UserHomepage extends React.Component<any,any> {
                   handleClick = {this.handleClick}
                 />
               </div>
-              <div className="col-9">
+              <div className="col-9 m-5">
                 {this.state.page}
               </div>
             </div>
