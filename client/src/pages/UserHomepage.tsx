@@ -1,10 +1,10 @@
 import * as React from "react";
 
-import update from 'immutability-helper';
+
 import Footer from '../components/footer';
 import AdvisorForm from './UserHome-components/AdvisorForm';
 // import UserAdvisor from './UserHome-components/useradvisor';
-import * as AdvisorFormJSON from './UserHome-components/AdvisorFormJSON.js';
+
 
 import UserHome from './UserHome-components/userhome';
 import UserNav from './UserHome-components/usernav';
@@ -16,11 +16,6 @@ export default class UserHomepage extends React.Component<any,any> {
   constructor(props: any) {
     super(props);
     this.state = {
-      advisor_answered: AdvisorFormJSON.answered,
-      advisor_page: AdvisorFormJSON.page,
-      advisor_page_max: AdvisorFormJSON.page_max,
-      advisor_questions: AdvisorFormJSON.questions,
-
       page: <UserHome />,
       userName: 'Person'
 
@@ -39,12 +34,11 @@ export default class UserHomepage extends React.Component<any,any> {
     } else if (name==='advisor') {
       this.setState(
         {
-          page: <AdvisorForm data={this.state} page={this.state.advisor_page} handleSubmit={this.handleSubmit} handleNextPage={this.handleNextPage} handleChange={this.handleChange}/>
+          page: <AdvisorForm />
         }
       )
     }
   }
-
   public handleChange = (event: any) =>{
     // tslint:disable-next-line:no-console
     console.log("********");
@@ -104,7 +98,6 @@ export default class UserHomepage extends React.Component<any,any> {
     });
     
   }
-
   public render() {
     return (
       <div>
