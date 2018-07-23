@@ -24,6 +24,7 @@
     "react-select": "^1.2.1",
     "react-stripe-checkout": "^2.6.3",
     "react-stripe-elements": "^2.0.1",
+    "stripe": "^6.3.0",
     "yarn": "^1.7.0"
   },
   "scripts": {

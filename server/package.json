@@ -23,6 +23,7 @@
     "@types/express-session": "^1.15.10",
     "@types/node": "^10.3.2",
     "@types/sequelize": "^4.27.23",
+    "@types/stripe": "^5.0.18",
     "body-parser": "^1.18.3",
     "connect-redis": "^3.3.3",
     "cookie-parser": "^1.4.3",
@@ -32,6 +33,7 @@
     "express-session": "^1.15.6",
     "pg": "^7.4.3",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^4.38.0"
+    "sequelize": "^4.38.0",
+    "stripe": "^6.3.0"
   }
 }
