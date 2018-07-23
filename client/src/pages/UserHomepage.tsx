@@ -1,10 +1,10 @@
 import * as React from "react";
 
-import update from 'immutability-helper';
+
 import Footer from '../components/footer';
 import AdvisorForm from './UserHome-components/AdvisorForm';
 // import UserAdvisor from './UserHome-components/useradvisor';
-import * as AdvisorFormJSON from './UserHome-components/AdvisorFormJSON.js';
+
 
 import UserHome from './UserHome-components/userhome';
 import UserNav from './UserHome-components/usernav';
@@ -16,11 +16,6 @@ export default class UserHomepage extends React.Component<any,any> {
   constructor(props: any) {
     super(props);
     this.state = {
-      advisor_answered: AdvisorFormJSON.answered,
-      advisor_page: AdvisorFormJSON.page,
-      advisor_page_max: AdvisorFormJSON.page_max,
-      advisor_questions: AdvisorFormJSON.questions,
-      
       page: <UserHome />,
       userName: 'Person'
       
@@ -47,69 +42,10 @@ export default class UserHomepage extends React.Component<any,any> {
     else if (name==='advisor') {
       this.setState(
         {
-          page: <AdvisorForm data={this.state} page={this.state.advisor_page} handleSubmit={this.handleSubmit} handleNextPage={this.handleNextPage} handleChange={this.handleChange}/>
+          page: <AdvisorForm />
         }
       )
     }
-  }
-
-  public handleChange = (event: any) =>{
-    // tslint:disable-next-line:no-console
-    console.log("********");
-    // tslint:disable-next-line:no-console
-    console.log(event);
-    // tslint:disable-next-line:no-console
-    // tslint:disable-next-line:no-console
-    // console.log(event.target.value);
-    
-
-    if(!Array.isArray(event)){
-      this.setState({
-        advisor_answered: update(this.state.advisor_answered, {
-          [this.state.advisor_page]:{
-            [event.target.id]:{ 
-              $set: event.target.value
-            }
-          }
-        })
-      });
-    }
-    else{
-      this.setState({
-        advisor_answered: update(this.state.advisor_answered, {
-          [this.state.advisor_page]:{
-            [event[0].value]:{ 
-              $push: event
-            }
-          }
-        })
-      });  
-      // tslint:disable-next-line:no-console
-      console.log(event[0].value);
-    }
-
-    
-
-  }
-
-  public handleSubmit = (event: any) =>{
-    // tslint:disable-next-line:no-console
-    console.log(event);
-    event.persist();
-    event.preventDefault();
-    
-    this.setState({
-      advisor_answered: update(this.state.advisor_answered, {[this.state.advisor_page]: {$set: event}})
-    });
-    
-  }
-
-  public handleNextPage = () =>{
-    this.setState({
-      advisor_page: (this.state.advisor_page < this.state.advisor_page_max) ? this.state.advisor_page + 1 : 0,
-      page: <AdvisorForm data={this.state} page={this.state.advisor_page} handleSubmit={this.handleSubmit} handleNextPage={this.handleNextPage} handleChange={this.handleChange}/>
-    });
-    
   }
 
   public render() {
