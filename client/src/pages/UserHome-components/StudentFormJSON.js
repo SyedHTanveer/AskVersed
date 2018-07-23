@@ -15,12 +15,24 @@ module.exports = {
           "College_year":""
     		},
         {
-          "hs_size",
+          "hs_academic_achievements":"",
+          "hs_academic_strengths":"",
+          "hs_ap":"",
+          "hs_ib":"",
+          "hs_other_Awards":"",
+          "hs_size":"",
+          "hs_tests":"",
           "hs_type":""
         },
     		{
-          "College_admissions_resources":"",
-    		}
+          "hs_academic_strengths":"",
+    		},
+        {
+          "hs_academic_strengths":"",
+        },
+        {
+          "hs_academic_strengths":"",
+        }
     	],
     	page: 0,
     	page_max: 4,
@@ -111,7 +123,14 @@ module.exports = {
 		    		question: "General High School Guidance",
 		    		type: "dropdown",
 		    		values: ["< 100", "100-249", "249-499", "500-999", ">1,000"]
-		    	}
+		    	},
+          {
+            desc: "",
+            id: "College_legacy",
+            question: "Home State",
+            type: "dropdown",
+            values: []
+          },
 	    	]
     	]
     }

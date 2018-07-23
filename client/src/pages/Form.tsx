@@ -12,7 +12,7 @@ export default class Form extends React.Component<{}, any>{
 	  				field = [<input key={obj.type} type="text"/>]
 	  				break;
           case 'textarea':
-            field = [<textarea />]
+            field = [<textarea key={obj.type}/>]
             break;
 	  			case 'password':
 	  				field = [<input key={obj.type} type="password"/>]
