@@ -11,6 +11,9 @@ export default class Form extends React.Component<{}, any>{
 	  			case 'text':
 	  				field = [<input key={obj.type} type="text"/>]
 	  				break;
+          case 'textarea':
+            field = [<textarea />]
+            break;
 	  			case 'password':
 	  				field = [<input key={obj.type} type="password"/>]
 	  				break;
@@ -19,7 +22,6 @@ export default class Form extends React.Component<{}, any>{
   						<option key={val} value={val}>{val}</option>
   					);
   					field = [<select key="select">,{options},</select>];
-
   					break;
 				case 'checkbox':
 					field = obj.values.map((val: any) =>

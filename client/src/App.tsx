@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import About from './pages/About';
 import Advisors from './pages/Advisor';
+import Buy from './pages/Buy';
 import Form from './pages/Form';
 import HomeScreen from './pages/HomeScreen';
 import Login from './pages/Login-components/login';
@@ -32,6 +33,7 @@ class App extends React.Component {
     return (
         <div>
           <Switch>
+            <Route exact={true} path='/checkout' component={Buy}/>
             <Route exact={true} path='/userHome' component={UserHome}/>
             <Route exact={true} path='/signup' component={Signup}/>
             <Route exact={true} path='/login' component={Login}/>
