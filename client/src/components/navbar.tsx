@@ -26,7 +26,7 @@ export default class Navbar extends React.Component {
                   <Link to="/blog" style={{ textDecoration: 'none' }}>Blog</Link>
                 </li>
                 <li className="nav-item nav-item-text p-2">
-                  <Link to="/mycart" style={{ textDecoration: 'none' }}>My Cart</Link>
+                  <Link to="/checkout" style={{ textDecoration: 'none' }}>My Cart</Link>
                 </li>
 
 

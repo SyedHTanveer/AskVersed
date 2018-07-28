@@ -1,7 +1,7 @@
 module.exports = {
     	answered: [
     		{
-          "Ethnicity":"",
+          "Ethnicity":[],
     			"Gender":""
         },
         {
@@ -10,7 +10,7 @@ module.exports = {
           "College_extra_programs":"",
           "College_legacy":"",
           "College_major":[],
-          "College_resources":"",
+          "College_resources":[],
           "College_school":"",
           "College_year":""
     		},
@@ -23,26 +23,17 @@ module.exports = {
           "hs_size":"",
           "hs_tests":"",
           "hs_type":""
-        },
-    		{
-          "hs_academic_strengths":"",
-    		},
-        {
-          "hs_academic_strengths":"",
-        },
-        {
-          "hs_academic_strengths":"",
         }
     	],
     	page: 0,
-    	page_max: 4,
+    	page_max: 1,
     	questions: [
     		[
 		    	{
 		    		desc: "",
 		    		id: "Gender",
 		    		question: "Gender",
-		    		type: "checkbox",
+		    		type: "dropdown",
 		    		values: ["Male", "Female", "Other", "Prefer not to answer"]
 		    	},
 		    	{
@@ -57,7 +48,7 @@ module.exports = {
   					id: "description",
   					question: "College (currently attending or graduated from)",
 		    		type: "dropdown",
-		    		values:["Amherst College", "Bard College", "Barnard College", "Bates College", "Boston University", "Bowdoin College", "Brandeis University", "Brown University", "Bryn Mawr College", "Bucknell University", "California Institute of Technology", "Carleton College", "Carnegie Mellon University", "Case Western Reserve University", "Centre College", "Claremont McKenna College", "Colby College", "Colgate University", "College of the Holy Cross","College of William &amp; Mary", "Colorado College", "Columbia University", "Connecticut College", "Cornell University", "Dartmouth College", "Davidson College", "Dickinson College", "Duke University", "Emory University", "Franklin and Marshall College", "Georgetown University", "Georgia Institute of Technology", "Grinnell College", "Hamilton College", "Harvard University", "Harvey Mudd College", "Haverford College", "Johns Hopkins University", "Kenyon College", "Lafayette College", "Lehigh University", "Macalester College", "Massachusetts Institute of Technology", "Middlebury College", "Mount Holyoke College", "New York University", "Northeastern University", "Northwestern University", "Oberlin College", "Occidental College", "Olin College", "Pennsylvania State University--University Park", "Pepperdine University", "Pitzer College", "Pomona College", "Princeton University", "Rensselaer Polytechnic Institute", "Rhodes College", "Rice University", "Scripps College", "Sewanee--University of the South", "Skidmore College", "Smith College", "Soka University of America", "Stanford University", "Swarthmore College", "Trinity College", "Tufts University", "Tulane University", "Union College", "United States Air Force Academy", "United States Military Academy", "United States Naval Academy", "University of California--Berkeley", "University of California--Davis", "University of California--Irvine", "University of California--Los Angeles", "University of California--San Diego", "University of California--Santa Barbara", "University of Chicago", "University of Florida", "University of Illinois--Urbana-Champaign", "University of Miami", "University of Michigan--Ann Arbor", "University of North Carolina--Chapel Hill", "University of Notre Dame", "University of Pennsylvania", "University of Richmond", "University of Rochester", "University of Southern California", "University of Virginia", "University of Washington", "University of Wisconsin--Madison", "Vanderbilt University", "Vassar College", "Villanova University", "Wake Forest University", "Washington and Lee University", "Washington University in St. Louis", "Wellesley College", "Wesleyan University", "Whitman College", "Williams College", "Yale University"]
+		    		values: ["Amherst College", "Bard College", "Barnard College", "Bates College", "Boston University", "Bowdoin College", "Brandeis University", "Brown University", "Bryn Mawr College", "Bucknell University", "California Institute of Technology", "Carleton College", "Carnegie Mellon University", "Case Western Reserve University", "Centre College", "Claremont McKenna College", "Colby College", "Colgate University", "College of the Holy Cross","College of William &amp; Mary", "Colorado College", "Columbia University", "Connecticut College", "Cornell University", "Dartmouth College", "Davidson College", "Dickinson College", "Duke University", "Emory University", "Franklin and Marshall College", "Georgetown University", "Georgia Institute of Technology", "Grinnell College", "Hamilton College", "Harvard University", "Harvey Mudd College", "Haverford College", "Johns Hopkins University", "Kenyon College", "Lafayette College", "Lehigh University", "Macalester College", "Massachusetts Institute of Technology", "Middlebury College", "Mount Holyoke College", "New York University", "Northeastern University", "Northwestern University", "Oberlin College", "Occidental College", "Olin College", "Pennsylvania State University--University Park", "Pepperdine University", "Pitzer College", "Pomona College", "Princeton University", "Rensselaer Polytechnic Institute", "Rhodes College", "Rice University", "Scripps College", "Sewanee--University of the South", "Skidmore College", "Smith College", "Soka University of America", "Stanford University", "Swarthmore College", "Trinity College", "Tufts University", "Tulane University", "Union College", "United States Air Force Academy", "United States Military Academy", "United States Naval Academy", "University of California--Berkeley", "University of California--Davis", "University of California--Irvine", "University of California--Los Angeles", "University of California--San Diego", "University of California--Santa Barbara", "University of Chicago", "University of Florida", "University of Illinois--Urbana-Champaign", "University of Miami", "University of Michigan--Ann Arbor", "University of North Carolina--Chapel Hill", "University of Notre Dame", "University of Pennsylvania", "University of Richmond", "University of Rochester", "University of Southern California", "University of Virginia", "University of Washington", "University of Wisconsin--Madison", "Vanderbilt University", "Vassar College", "Villanova University", "Wake Forest University", "Washington and Lee University", "Washington University in St. Louis", "Wellesley College", "Wesleyan University", "Whitman College", "Williams College", "Yale University"]
 		    	},
 		    	{
 		    		desc: "",
@@ -71,13 +62,6 @@ module.exports = {
 					  id: "College_extra_programs",
 					  question: "School/Program within College",
 		    		type: "textbox",
-		    		values: []
-		    	},
-		    	{
-		    		desc: "",
-		    		id: "College_legacy",
-		    		question: "Home State",
-		    		type: "dropdown",
 		    		values: []
 		    	},
 		    	{
@@ -123,14 +107,7 @@ module.exports = {
 		    		question: "General High School Guidance",
 		    		type: "dropdown",
 		    		values: ["< 100", "100-249", "249-499", "500-999", ">1,000"]
-		    	},
-          {
-            desc: "",
-            id: "College_legacy",
-            question: "Home State",
-            type: "dropdown",
-            values: []
-          },
+		    	}
 	    	]
     	]
     }
