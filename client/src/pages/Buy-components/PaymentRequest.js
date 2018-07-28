@@ -8,13 +8,15 @@ class PaymentRequestForm extends React.Component {
       country: 'US',
       currency: 'usd',
       total: {
-        label: 'Demo total',
         amount: 1000,
+        label: 'Demo total',
       },
     });
 
     paymentRequest.on('token', ({complete, token, ...data}) => {
+      // tslint:disable-next-line:no-console
       console.log('Received Stripe token: ', token);
+      // tslint:disable-next-line:no-console
       console.log('Received customer information: ', data);
       complete('success');
     });
@@ -38,8 +40,8 @@ class PaymentRequestForm extends React.Component {
           // For more details on how to style the Payment Request Button, see:
           // https://stripe.com/docs/elements/payment-request-button#styling-the-element
           paymentRequestButton: {
-            theme: 'light',
             height: '64px',
+            theme: 'light',
           },
         }}
       />
