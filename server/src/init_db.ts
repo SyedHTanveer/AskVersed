@@ -34,7 +34,6 @@ const Parent = sequelize.define('parent', {
   }
 });
 
-Parent.sync({force: true});
 
 const Advisor = sequelize.define('advisor', {
     a_id: {
@@ -105,7 +104,6 @@ const Advisor = sequelize.define('advisor', {
     }
 });
 
-Advisor.sync({force: true});
 
 interface parent {p_id: any, children: any, username: any, password: any, salt: any, is_admin: any, is_advisor: any, active: any};
 const createNewParent = ({p_id, children, username, password, salt, is_admin, is_advisor, active} : any, cb: Function) => {
@@ -175,12 +173,18 @@ const getAdvisor = (a_id: String, cb: Function) => {
   }).then( (adv: any) => cb(adv));
 }
 
-const getParent = (email: String, cb: Function) => {
+const getParent = (obj: any, cb: Function) => {
   Parent.findOne({
     where: {
-      username: email
+      username: obj.username
     }
-  }).then((parent: any) => cb(parent));
+  }).then((parent: any) => {
+    if(parent.password === obj.password ) {
+      cb(true);
+    } else {
+      cb(false);
+    }
+  });
 }
 
 module.exports = {sequelize, Advisor, Parent, createNewParent, createNewAdvisor, updateAdvisor, getAdvisor, getParent};

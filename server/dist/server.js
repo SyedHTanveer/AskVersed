@@ -4,6 +4,8 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const configureStripe = require('stripe');
+const stripe = configureStripe("sk_test_SNgNo6vUut1oigHxSJrSfbtl");
 const elasticsearch = require("elasticsearch");
 const db = require('./init_db');
 db.sequelize.sync({ force: true });
@@ -258,7 +260,19 @@ app.put('/newParent', (req, res) => {
     });
 });
 app.post('/parentInfo', (req, res) => {
-    db.getParent(req.body.email, (ret) => res.send(ret));
+    console.log(req.body);
+    db.getParent(req.body, (ret) => res.send(ret));
+});
+const postStripeCharge = (res) => (stripeErr, stripeRes) => {
+    if (stripeErr) {
+        res.status(500).send({ error: stripeErr });
+    }
+    else {
+        res.status(200).send({ success: stripeRes });
+    }
+};
+app.post('/payment', (req, res) => {
+    stripe.charges.create(req.body, postStripeCharge(res));
 });
 app.listen(port, () => console.log(`server listening on port ${port}`));
 //# sourceMappingURL=server.js.map

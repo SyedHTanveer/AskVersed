@@ -5,7 +5,7 @@ import * as bodyParser from 'body-parser';
 
 import * as cors from 'cors';
 
-import * as configureStripe from 'stripe';
+const configureStripe = require('stripe');
 
 const stripe = configureStripe("sk_test_SNgNo6vUut1oigHxSJrSfbtl");
 
@@ -278,10 +278,11 @@ app.put('/newParent', (req: Request, res: Response) => {
 });
 
 app.post('/parentInfo', (req: Request, res: Response) => {
-  db.getParent(req.body.email, (ret:any) => res.send(ret));
+  console.log(req.body);
+  db.getParent(req.body, (ret:any) => res.send(ret));
 });
 
-const postStripeCharge = res => (stripeErr: Error, stripeRes: Response) => {
+const postStripeCharge = (res: any) => (stripeErr: Error, stripeRes: Response) => {
   if (stripeErr) {
     res.status(500).send({ error: stripeErr });
   } else {

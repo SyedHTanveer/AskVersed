@@ -10,7 +10,7 @@ export default class UserHome extends React.Component {
             <h5 className="mb-0">
               <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 Advisor Information
-              </a>
+              </a>  
             </h5>
           </div>
 
