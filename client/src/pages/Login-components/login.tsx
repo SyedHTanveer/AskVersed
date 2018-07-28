@@ -27,6 +27,26 @@ export default class Login extends React.Component<{}, any> {
 
   public handleSubmit = (e: any) => {
     e.preventDefault();
+    fetch("http://localhost:8000/parentInfo", {
+      body: JSON.stringify({
+        password: this.state.password,
+        username: this.state.email
+      }),
+      credentials: 'include',
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+      method:"POST",
+    }).then((val) => val.json())
+    .then((json) => {
+      if(json === true) {
+        return <Redirect to='/userHomepage' />;
+      }
+      // tslint:disable-next-line:no-console
+        console.log("Failed");
+        return false;
+
+    });
     return <Redirect to='/userHomepage' />;
   }
 
@@ -44,7 +64,7 @@ export default class Login extends React.Component<{}, any> {
 
             <div className="floating-label-form-group">
               <label className="sr-only">Password</label>
-              <input name="password" className="form-control" placeholder="Password" value={this.state.password} onChange={this.handleChange}/>
+              <input name="password" type="password" className="form-control" placeholder="Password" value={this.state.password} onChange={this.handleChange}/>
             </div>
             <div className="checkbox mb-3">
               <label>

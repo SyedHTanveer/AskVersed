@@ -13,7 +13,7 @@ export default class Form extends React.Component<any, any>{
       advisor_page: AdvisorFormJSON.page,
       advisor_page_max: AdvisorFormJSON.page_max,
       advisor_questions: AdvisorFormJSON.questions
-      
+
     }
   }
 
@@ -26,13 +26,13 @@ export default class Form extends React.Component<any, any>{
     // tslint:disable-next-line:no-console
     // tslint:disable-next-line:no-console
     // console.log(event.target.value);
-    
+
 
     if(!Array.isArray(event)){
       this.setState({
         advisor_answered: update(this.state.advisor_answered, {
           [this.state.advisor_page]:{
-            [event.target.id]:{ 
+            [event.target.id]:{
               $set: event.target.value
             }
           }
@@ -53,17 +53,17 @@ export default class Form extends React.Component<any, any>{
       this.setState({
         advisor_answered: update(this.state.advisor_answered, {
           [this.state.advisor_page]:{
-            [event[0].value]:{ 
+            [event[0].value]:{
               $push: event
             }
           }
         })
-      });  
+      });
       // tslint:disable-next-line:no-console
       console.log(event[0].value);
     }
 
-    
+
 
   }
 
@@ -72,11 +72,11 @@ export default class Form extends React.Component<any, any>{
     console.log(event);
     event.persist();
     event.preventDefault();
-    
+
     this.setState({
       advisor_answered: update(this.state.advisor_answered, {[this.state.advisor_page]: {$set: event}})
     });
-    
+    fetch()
   }
 
   public handleNextPage = () =>{
@@ -93,13 +93,13 @@ export default class Form extends React.Component<any, any>{
     */
   }
 
-  
 
-  public render() 
- {  	
+
+  public render()
+ {
 	return(
 		<form onSubmit={this.handleSubmit}>
-		{this.state.advisor_questions[this.state.advisor_page].map( (obj: any)=> 
+		{this.state.advisor_questions[this.state.advisor_page].map( (obj: any)=>
 	  		{
 	  			const question = <label key={obj.id+"_label"}>{obj.question}</label>
 	  			let field;
@@ -112,7 +112,7 @@ export default class Form extends React.Component<any, any>{
 	  						<option key={val} value={val}>{val}</option>
 	  					);
 	  					field = [<select onChange={this.handleChange} key={obj.id} id={obj.id}>,{options},</select>];
-	  					
+
 
 	  					break;
 					case 'checkbox':
