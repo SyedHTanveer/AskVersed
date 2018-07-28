@@ -14,9 +14,9 @@ class PaymentRequestForm extends React.Component {
     });
 
     paymentRequest.on('token', ({complete, token, ...data}) => {
-          // tslint:disable-next-line:no-console
+      // tslint:disable-next-line:no-console
       console.log('Received Stripe token: ', token);
-          // tslint:disable-next-line:no-console
+      // tslint:disable-next-line:no-console
       console.log('Received customer information: ', data);
       complete('success');
     });
