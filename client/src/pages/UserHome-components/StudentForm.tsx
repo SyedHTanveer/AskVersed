@@ -100,7 +100,7 @@ export default class Form extends React.Component<any, any>{
  {
 	return(
 		<form onSubmit={this.handleSubmit}>
-		{this.state.student_questions[this.state.student_page].map( (obj: any)=>
+		{this.state.student_questions[this.state.student_page].map( (obj: any) =>
 	  		{
 	  			const question = <label key={obj.id+"_label"}>{obj.question}</label>
 	  			let field;
