@@ -5,9 +5,13 @@ import * as bodyParser from 'body-parser';
 
 import * as cors from 'cors';
 
+const configureStripe = require('stripe');
+
+const stripe = configureStripe("sk_test_SNgNo6vUut1oigHxSJrSfbtl");
+
 import * as elasticsearch from 'elasticsearch';
 const db = require('./init_db');
-
+db.sequelize.sync({force: true});
 const client = new elasticsearch.Client({ host: 'localhost:9200', log: 'trace' });
 
 client.indices.exists({ index: "advisors" })
@@ -274,8 +278,24 @@ app.put('/newParent', (req: Request, res: Response) => {
 });
 
 app.post('/parentInfo', (req: Request, res: Response) => {
-  db.getParent(req.body.email, (ret:any) => res.send(ret));
+  console.log(req.body);
+  db.getParent(req.body, (ret:any) => res.send(ret));
 });
+
+const postStripeCharge = (res: any) => (stripeErr: Error, stripeRes: Response) => {
+  if (stripeErr) {
+    res.status(500).send({ error: stripeErr });
+  } else {
+    res.status(200).send({ success: stripeRes });
+  }
+}
+
+app.post('/payment', (req: Request, res: Response) => {
+  stripe.charges.create(req.body, postStripeCharge(res));
+});
+
+
+
 
 
 app.listen(port, () => console.log(`server listening on port ${port}`));

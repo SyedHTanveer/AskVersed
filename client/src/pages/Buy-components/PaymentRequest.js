@@ -34,8 +34,8 @@ class PaymentRequestForm extends React.Component {
   render() {
     return this.state.canMakePayment ? (
       <PaymentRequestButtonElement
-        paymentRequest={this.state.paymentRequest}
         className="PaymentRequestButton"
+        paymentRequest={this.state.paymentRequest}
         style={{
           // For more details on how to style the Payment Request Button, see:
           // https://stripe.com/docs/elements/payment-request-button#styling-the-element
