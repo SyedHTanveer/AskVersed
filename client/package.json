@@ -7,12 +7,12 @@
     "@types/node": "^10.5.2",
     "@types/react": "^16.4.6",
     "@types/react-dom": "^16.0.6",
+    "@types/react-router": "^4.0.29",
     "@types/react-router-dom": "^4.2.7",
-    "react-scripts-ts": "2.16.0",
+    "react-scripts-ts": "^2.16.0",
     "typescript": "^2.9.2"
   },
   "dependencies": {
-    "@types/react-router": "^4.0.29",
     "@types/react-stripe-elements": "^1.1.6",
     "ajv": "^6.5.2",
     "axios": "^0.18.0",
@@ -21,7 +21,7 @@
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-router-dom": "^4.3.1",
-    "react-select": "^1.2.1",
+    "react-select": "^2.0.0",
     "react-stripe-checkout": "^2.6.3",
     "react-stripe-elements": "^2.0.1",
     "stripe": "^6.3.0",
