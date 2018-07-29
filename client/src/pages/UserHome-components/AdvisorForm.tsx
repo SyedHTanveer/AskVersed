@@ -2,7 +2,7 @@ import update from 'immutability-helper';
 import * as React from "react";
 import Select from 'react-select';
 
-import 'react-select/dist/react-select.css';
+// import 'react-select/dist/react-select.js';
 import * as AdvisorFormJSON from './AdvisorFormJSON.js';
 export default class Form extends React.Component<any, any>{
   public constructor(props: any) {
@@ -26,44 +26,60 @@ export default class Form extends React.Component<any, any>{
     // tslint:disable-next-line:no-console
     // tslint:disable-next-line:no-console
     // console.log(event.target.value);
+	  
+    this.setState({
+	    advisor_answered: update(this.state.advisor_answered, {
+	      [this.state.advisor_page]:{
+	        [event.target.id]:{
+	          $set: event.target.value
+	        }
+	      }
+	    })
+	  });
+  }
 
-
-    if(!Array.isArray(event)){
-      this.setState({
-        advisor_answered: update(this.state.advisor_answered, {
-          [this.state.advisor_page]:{
-            [event.target.id]:{
-              $set: event.target.value
-            }
-          }
-        })
-      });
-    }
-    else{
+  public handleSelectChange = (event: any, action: any) =>{
+       // tslint:disable-next-line:no-console
+      console.log(event);
+// tslint:disable-next-line:no-console
+      console.log(action);
+      /*
+       
+      console.log(event.value);
       // tslint:disable-next-line:no-console
       console.log(this.state.advisor_answered);
       // tslint:disable-next-line:no-console
       console.log(this.state.advisor_answered[this.state.advisor_page]);
       // tslint:disable-next-line:no-console
-      console.log(this.state.advisor_answered[this.state.advisor_page][event[0].value]);
-      // tslint:disable-next-line:no-console
-      console.log(event[0].value);
-      // tslint:disable-next-line:no-console
-      console.log(this.state.advisor_page);
-      this.setState({
-        advisor_answered: update(this.state.advisor_answered, {
-          [this.state.advisor_page]:{
-            [event[0].value]:{
-              $push: event
-            }
-          }
-        })
-      });
-      // tslint:disable-next-line:no-console
-      console.log(event[0].value);
-    }
-
-
+	  console.log(this.state.advisor_answered[this.state.advisor_page][event.value]);
+      */
+      if(action.action === "select-option"){
+	      this.setState({
+	        advisor_answered: update(this.state.advisor_answered, {
+	          [this.state.advisor_page]:{
+	            [event[0].value]:{
+	              $push: event
+	            }
+	          }
+	        })
+	      });
+	  }
+	  else{
+	  	const index = this.state.advisor_answered.findIndex((obj: any) => obj.label === action.removedValue.label)
+	  	// tslint:disable-next-line:no-console
+	  	console.log(index)
+	  	this.setState({
+	        advisor_answered: update(this.state.advisor_answered, {
+	          [this.state.advisor_page]:{
+	            [action.removedValue.value]:{
+	              $splice: [[index, 1]]
+	            }
+	          }
+	        })
+	      });
+	  }
+	  // tslint:disable-next-line:no-console
+	  console.log(this.state.advisor_answered[this.state.advisor_page][event.value]);
 
   }
 
@@ -134,10 +150,14 @@ export default class Form extends React.Component<any, any>{
 						field = [<Select
 					        key={obj.id}
 					        name={obj.id}
+					        
 					        value={this.state.advisor_answered[this.state.advisor_page][obj.id]}
-					        onChange={this.handleChange}
+					        // value={[{test: "test1"}]}
+					        onChange={this.handleSelectChange}
 					        options={FormOptions}
-					        multi={true}
+					        isMulti={true}
+					        isClearable={true}
+					        // isClearable={true}
 					      />]
 						break;
 		  			default:
