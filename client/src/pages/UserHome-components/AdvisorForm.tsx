@@ -86,13 +86,6 @@ export default class Form extends React.Component<any, any>{
   public handleSubmit = (event: any) =>{
     // tslint:disable-next-line:no-console
     console.log(event);
-    event.persist();
-    event.preventDefault();
-
-    this.setState({
-      advisor_answered: update(this.state.advisor_answered, {[this.state.advisor_page]: {$set: event}})
-    });
-    fetch()
   }
 
   public handleNextPage = () =>{
