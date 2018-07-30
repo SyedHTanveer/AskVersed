@@ -86,6 +86,7 @@ export default class Form extends React.Component<any, any>{
   public handleSubmit = (event: any) =>{
     // tslint:disable-next-line:no-console
     console.log(event);
+    event.preventDefault();
   }
 
   public handleNextPage = () =>{
