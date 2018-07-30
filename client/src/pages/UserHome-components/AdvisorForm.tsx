@@ -136,6 +136,7 @@ export default class Form extends React.Component<any, any>{
 						const FormOptions = obj.values.map((val: any) => {
 							return {value: obj.id, label: val}
 						});
+						const FormOptionsCopy = FormOptions.slice();
 						// tslint:disable-next-line:no-console
 						console.log("SELECT");
 						// tslint:disable-next-line:no-console
@@ -147,7 +148,7 @@ export default class Form extends React.Component<any, any>{
 					        value={this.state.advisor_answered[this.state.advisor_page][obj.id]}
 					        // value={[{test: "test1"}]}
 					        onChange={this.handleSelectChange}
-					        options={FormOptions}
+					        options={FormOptionsCopy}
 					        isMulti={true}
 					        isClearable={true}
 					        // isClearable={true}
