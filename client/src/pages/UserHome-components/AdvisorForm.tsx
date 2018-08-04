@@ -43,8 +43,10 @@ export default class Form extends React.Component<any, any>{
       console.log(event);
 // tslint:disable-next-line:no-console
       console.log(action);
+
+      const newVal = event.length > 0 ? event[0].value.split("|")[0] : action.removedValue.value.split("|")[0];
       /*
-       
+      
       console.log(event.value);
       // tslint:disable-next-line:no-console
       console.log(this.state.advisor_answered);
@@ -54,24 +56,30 @@ export default class Form extends React.Component<any, any>{
 	  console.log(this.state.advisor_answered[this.state.advisor_page][event.value]);
       */
       if(action.action === "select-option"){
+      	
+      	// tslint:disable-next-line:no-console
+      console.log(newVal);
+	      
 	      this.setState({
 	        advisor_answered: update(this.state.advisor_answered, {
 	          [this.state.advisor_page]:{
-	            [event[0].value]:{
-	              $push: event
+	            [newVal]:{
+	              $set: event
 	            }
 	          }
 	        })
 	      });
+	      
 	  }
 	  else{
-	  	const index = this.state.advisor_answered.findIndex((obj: any) => obj.label === action.removedValue.label)
+	  	
+	  	const index = this.state.advisor_answered[this.state.advisor_page][newVal].findIndex((obj: any) => obj.value === action.removedValue.value)
 	  	// tslint:disable-next-line:no-console
 	  	console.log(index)
 	  	this.setState({
 	        advisor_answered: update(this.state.advisor_answered, {
 	          [this.state.advisor_page]:{
-	            [action.removedValue.value]:{
+	            [newVal]:{
 	              $splice: [[index, 1]]
 	            }
 	          }
@@ -135,9 +143,9 @@ export default class Form extends React.Component<any, any>{
 						);
 						*/
 						const FormOptions = obj.values.map((val: any) => {
-							return {value: obj.id, label: val}
+							return {value: obj.id+"|"+val, label: val}
 						});
-						const FormOptionsCopy = FormOptions.slice();
+						// const FormOptionsCopy = FormOptions.slice();
 						// tslint:disable-next-line:no-console
 						console.log("SELECT");
 						// tslint:disable-next-line:no-console
@@ -149,7 +157,7 @@ export default class Form extends React.Component<any, any>{
 					        value={this.state.advisor_answered[this.state.advisor_page][obj.id]}
 					        // value={[{test: "test1"}]}
 					        onChange={this.handleSelectChange}
-					        options={FormOptionsCopy}
+					        options={FormOptions}
 					        isMulti={true}
 					        isClearable={true}
 					        // isClearable={true}
