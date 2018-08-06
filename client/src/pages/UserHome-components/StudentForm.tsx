@@ -1,9 +1,6 @@
 import update from 'immutability-helper';
 import * as React from "react";
 import Select from 'react-select';
-
-// import 'react-select/dist/react-select.js';
-
 import * as StudentFormJSON from './StudentFormJSON.js';
 
 export default class Form extends React.Component<any, any>{
@@ -28,7 +25,7 @@ public handleChange = (event: any) =>{
     // tslint:disable-next-line:no-console
     // tslint:disable-next-line:no-console
     // console.log(event.target.value);
-    
+
     this.setState({
       student_answered: update(this.state.student_answered, {
         [this.state.student_page]:{
@@ -48,9 +45,12 @@ public handleChange = (event: any) =>{
 
       const newVal = event.length > 0 ? event[0].value.split("|")[0] : action.removedValue.value.split("|")[0];
       /*
-      
+
       console.log(event.value);
       // tslint:disable-next-line:no-console
+<<<<<<< HEAD
+      console.log(event[0].value);
+=======
       console.log(this.state.student_answered);
       // tslint:disable-next-line:no-console
       console.log(this.state.student_answered[this.state.student_page]);
@@ -58,10 +58,10 @@ public handleChange = (event: any) =>{
     console.log(this.state.student_answered[this.state.student_page][event.value]);
       */
       if(action.action === "select-option"){
-        
+
         // tslint:disable-next-line:no-console
       console.log(newVal);
-        
+
         this.setState({
           student_answered: update(this.state.student_answered, {
             [this.state.student_page]:{
@@ -71,13 +71,14 @@ public handleChange = (event: any) =>{
             }
           })
         });
-        
+
     }
     else{
-      
+
       const index = this.state.student_answered[this.state.student_page][newVal].findIndex((obj: any) => obj.value === action.removedValue.value)
       // tslint:disable-next-line:no-console
       console.log(index)
+>>>>>>> c738716bbcc5416da8f72a7193cbb12892e10c31
       this.setState({
           student_answered: update(this.state.student_answered, {
             [this.state.student_page]:{
@@ -85,8 +86,14 @@ public handleChange = (event: any) =>{
                 $splice: [[index, 1]]
               }
             }
+<<<<<<< HEAD
+          }
+        })
+      });
+=======
           })
         });
+>>>>>>> c738716bbcc5416da8f72a7193cbb12892e10c31
     }
     // tslint:disable-next-line:no-console
     console.log(this.state.student_answered[this.state.student_page][event.value]);
@@ -155,7 +162,7 @@ public handleChange = (event: any) =>{
             field = [<Select
                   key={obj.id}
                   name={obj.id}
-                  
+
                   value={this.state.student_answered[this.state.student_page][obj.id]}
                   // value={[{test: "test1"}]}
                   onChange={this.handleSelectChange}

@@ -1,9 +1,8 @@
 import update from 'immutability-helper';
 import * as React from "react";
 import Select from 'react-select';
-
-// import 'react-select/dist/react-select.js';
 import * as AdvisorFormJSON from './AdvisorFormJSON.js';
+
 export default class Form extends React.Component<any, any>{
   public constructor(props: any) {
     super(props);
@@ -26,7 +25,7 @@ export default class Form extends React.Component<any, any>{
     // tslint:disable-next-line:no-console
     // tslint:disable-next-line:no-console
     // console.log(event.target.value);
-	  
+
     this.setState({
 	    advisor_answered: update(this.state.advisor_answered, {
 	      [this.state.advisor_page]:{
@@ -46,7 +45,7 @@ export default class Form extends React.Component<any, any>{
 
       const newVal = event.length > 0 ? event[0].value.split("|")[0] : action.removedValue.value.split("|")[0];
       /*
-      
+
       console.log(event.value);
       // tslint:disable-next-line:no-console
       console.log(this.state.advisor_answered);
@@ -56,10 +55,10 @@ export default class Form extends React.Component<any, any>{
 	  console.log(this.state.advisor_answered[this.state.advisor_page][event.value]);
       */
       if(action.action === "select-option"){
-      	
+
       	// tslint:disable-next-line:no-console
       console.log(newVal);
-	      
+
 	      this.setState({
 	        advisor_answered: update(this.state.advisor_answered, {
 	          [this.state.advisor_page]:{
@@ -69,10 +68,10 @@ export default class Form extends React.Component<any, any>{
 	          }
 	        })
 	      });
-	      
+
 	  }
 	  else{
-	  	
+
 	  	const index = this.state.advisor_answered[this.state.advisor_page][newVal].findIndex((obj: any) => obj.value === action.removedValue.value)
 	  	// tslint:disable-next-line:no-console
 	  	console.log(index)
@@ -153,7 +152,7 @@ export default class Form extends React.Component<any, any>{
 						field = [<Select
 					        key={obj.id}
 					        name={obj.id}
-					        
+
 					        value={this.state.advisor_answered[this.state.advisor_page][obj.id]}
 					        // value={[{test: "test1"}]}
 					        onChange={this.handleSelectChange}

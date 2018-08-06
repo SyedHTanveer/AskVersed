@@ -18,14 +18,14 @@
     "axios": "^0.18.0",
     "hoist-non-react-statics": "^2.5.5",
     "immutability-helper": "^2.7.1",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
     "react-select": "2",
     "react-stripe-checkout": "^2.6.3",
     "react-stripe-elements": "^2.0.1",
     "stripe": "^6.3.0",
-    "yarn": "^1.7.0"
+    "yarn": "^1.9.2"
   },
   "scripts": {
     "start": "react-scripts-ts start",

@@ -14,6 +14,23 @@ class CheckoutForm extends React.Component {
     this.props.stripe.createToken({name: 'Jenny Rosen'}).then(({token}) => {
           // tslint:disable-next-line:no-console
       console.log('Received Stripe token:', token);
+      fetch('http://localhost:8000/charges', {
+      body: JSON.stringify({token: ev.token}),
+      headers: {'content-type': 'application/json'},
+      method: 'POST'
+    })
+    .then(function(response) {
+      if (response.ok) {
+        // Report to the browser that the payment was successful, prompting
+        // it to close the browser payment interface.
+        ev.complete('success');
+      } else {
+        // Report to the browser that the payment failed, prompting it to
+        // re-show the payment interface, or show an error message and close
+        // the payment interface.
+        ev.complete('fail');
+      }
+    });
     });
     // However, this line of code will do the same thing:
     //

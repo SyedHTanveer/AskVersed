@@ -7,7 +7,7 @@ import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
-  <StripeProvider apiKey="spk_test_12345">
+  <StripeProvider apiKey="pk_live_snq5kCX0DQrFNwptyy58gnVE">
     <BrowserRouter>
       <App/>
     </BrowserRouter>
