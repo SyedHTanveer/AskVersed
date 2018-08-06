@@ -6,10 +6,10 @@
     "@types/jest": "^23.3.0",
     "@types/node": "^10.5.2",
     "@types/react": "^16.4.6",
-    "@types/react-dom": "16.0.4",
+    "@types/react-dom": "^16.0.6",
     "@types/react-router": "^4.0.29",
-    "@types/react-router-dom": "^4.3.0",
-    "react-scripts-ts": "2.16.0",
+    "@types/react-router-dom": "^4.2.7",
+    "react-scripts-ts": "^2.16.0",
     "typescript": "^2.9.2"
   },
   "dependencies": {
@@ -21,7 +21,7 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
-    "react-select": "^2.0.0",
+    "react-select": "2",
     "react-stripe-checkout": "^2.6.3",
     "react-stripe-elements": "^2.0.1",
     "stripe": "^6.3.0",

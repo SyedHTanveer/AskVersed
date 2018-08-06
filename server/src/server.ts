@@ -12,7 +12,7 @@ const stripe = configureStripe("sk_test_SNgNo6vUut1oigHxSJrSfbtl");
 import * as elasticsearch from 'elasticsearch';
 const db = require('./init_db');
 db.sequelize.sync({force: true});
-const client = new elasticsearch.Client({ host: 'localhost:9200', log: 'trace' });
+const client = new elasticsearch.Client({ host: 'http://localhost:9200', log: 'trace' });
 
 client.indices.exists({ index: "advisors" })
   .then(() => client.indices.delete({ index: "advisors" }))
@@ -148,7 +148,7 @@ const app = express();
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
+app.use(cors());
 
 app.get('/', (req: Request, res: Response) => {
   console.log("received '/' get request" + req.session);

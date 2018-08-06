@@ -9,7 +9,11 @@ const stripe = configureStripe("sk_test_SNgNo6vUut1oigHxSJrSfbtl");
 const elasticsearch = require("elasticsearch");
 const db = require('./init_db');
 db.sequelize.sync({ force: true });
+<<<<<<< HEAD
 const client = new elasticsearch.Client({ host: 'localhost:3000', log: 'trace' });
+=======
+const client = new elasticsearch.Client({ host: 'http://localhost:9200', log: 'trace' });
+>>>>>>> c738716bbcc5416da8f72a7193cbb12892e10c31
 client.indices.exists({ index: "advisors" })
     .then(() => client.indices.delete({ index: "advisors" }))
     .then(() => client.indices.create({ index: 'advisors' }))
@@ -138,7 +142,7 @@ const app = express();
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
+app.use(cors());
 app.get('/', (req, res) => {
     console.log("received '/' get request" + req.session);
     if (req.session && req.session.page_views) {
