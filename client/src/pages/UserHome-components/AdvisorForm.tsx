@@ -2,7 +2,6 @@ import update from 'immutability-helper';
 import * as React from "react";
 import Select from 'react-select';
 
-import 'react-select/dist/react-select.css';
 import * as AdvisorFormJSON from './AdvisorFormJSON.js';
 export default class Form extends React.Component<any, any>{
   public constructor(props: any) {
@@ -137,7 +136,7 @@ export default class Form extends React.Component<any, any>{
 					        value={this.state.advisor_answered[this.state.advisor_page][obj.id]}
 					        onChange={this.handleChange}
 					        options={FormOptions}
-					        multi={true}
+					        isMulti={true}
 					      />]
 						break;
 		  			default:

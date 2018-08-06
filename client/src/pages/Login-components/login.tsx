@@ -48,7 +48,7 @@ export default class Login extends React.Component<{}, any> {
 
     });
     return <Redirect to='/userHomepage' />;
-  }
+  };
 
   public render() {
     return (

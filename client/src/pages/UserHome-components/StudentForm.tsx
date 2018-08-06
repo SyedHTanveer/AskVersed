@@ -2,7 +2,6 @@ import update from 'immutability-helper';
 import * as React from "react";
 import Select from 'react-select';
 
-import 'react-select/dist/react-select.css';
 import * as StudentFormJSON from './StudentFormJSON.js';
 
 export default class Form extends React.Component<any, any>{
@@ -42,15 +41,7 @@ export default class Form extends React.Component<any, any>{
     }
     else{
       // tslint:disable-next-line:no-console
-      console.log(this.state.student_answered);
-      // tslint:disable-next-line:no-console
-      console.log(this.state.student_answered[this.state.student_page]);
-      // tslint:disable-next-line:no-console
-      console.log(this.state.student_answered[this.state.student_page][event[0].value]);
-      // tslint:disable-next-line:no-console
       console.log(event[0].value);
-      // tslint:disable-next-line:no-console
-      console.log(this.state.student_page);
       this.setState({
         student_answered: update(this.state.student_answered, {
           [this.state.student_page]:{
@@ -60,8 +51,6 @@ export default class Form extends React.Component<any, any>{
           }
         })
       });
-      // tslint:disable-next-line:no-console
-      console.log(event[0].value);
     }
 
 
@@ -138,7 +127,7 @@ export default class Form extends React.Component<any, any>{
 					        value={this.state.student_answered[this.state.student_page][obj.id]}
 					        onChange={this.handleChange}
 					        options={FormOptions}
-					        multi={true}
+					        isMulti={true}
 					      />]
 						break;
             case 'textbox':

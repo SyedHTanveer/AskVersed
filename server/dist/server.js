@@ -9,7 +9,7 @@ const stripe = configureStripe("sk_test_SNgNo6vUut1oigHxSJrSfbtl");
 const elasticsearch = require("elasticsearch");
 const db = require('./init_db');
 db.sequelize.sync({ force: true });
-const client = new elasticsearch.Client({ host: 'localhost:9200', log: 'trace' });
+const client = new elasticsearch.Client({ host: 'localhost:3000', log: 'trace' });
 client.indices.exists({ index: "advisors" })
     .then(() => client.indices.delete({ index: "advisors" }))
     .then(() => client.indices.create({ index: 'advisors' }))
