@@ -3,6 +3,7 @@
     "@types/react-stripe-elements": "^1.1.6",
     "gatsby-source-filesystem": "^1.5.39",
     "gatsby-transformer-remark": "^1.7.44",
+    "react-helmet": "^5.2.0",
     "react-stripe-elements": "^2.0.1"
   }
 }

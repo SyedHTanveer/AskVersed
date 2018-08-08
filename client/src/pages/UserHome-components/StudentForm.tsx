@@ -48,9 +48,6 @@ public handleChange = (event: any) =>{
 
       console.log(event.value);
       // tslint:disable-next-line:no-console
-<<<<<<< HEAD
-      console.log(event[0].value);
-=======
       console.log(this.state.student_answered);
       // tslint:disable-next-line:no-console
       console.log(this.state.student_answered[this.state.student_page]);
@@ -78,7 +75,6 @@ public handleChange = (event: any) =>{
       const index = this.state.student_answered[this.state.student_page][newVal].findIndex((obj: any) => obj.value === action.removedValue.value)
       // tslint:disable-next-line:no-console
       console.log(index)
->>>>>>> c738716bbcc5416da8f72a7193cbb12892e10c31
       this.setState({
           student_answered: update(this.state.student_answered, {
             [this.state.student_page]:{
@@ -86,14 +82,8 @@ public handleChange = (event: any) =>{
                 $splice: [[index, 1]]
               }
             }
-<<<<<<< HEAD
-          }
-        })
-      });
-=======
           })
         });
->>>>>>> c738716bbcc5416da8f72a7193cbb12892e10c31
     }
     // tslint:disable-next-line:no-console
     console.log(this.state.student_answered[this.state.student_page][event.value]);
