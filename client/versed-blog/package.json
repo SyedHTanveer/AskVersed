@@ -11,7 +11,7 @@
     "gatsby-plugin-manifest": "~2.0.2-beta.3",
     "gatsby-plugin-offline": "~2.0.0-beta.6",
     "gatsby-plugin-react-helmet": "3.0.0-beta.3",
-    "gatsby-plugin-sharp": "2.0.0-beta.5",
+    "gatsby-plugin-sharp": "^2.0.0-beta.7",
     "gatsby-remark-images": "2.0.1-beta.6",
     "gatsby-source-filesystem": "2.0.1-beta.3",
     "gatsby-transformer-remark": "2.1.1-beta.3",
@@ -21,7 +21,7 @@
     "react-icons": "~2.2.5"
   },
   "devDependencies": {
-    "gh-pages": "1.1.0",
+    "gh-pages": "^1.2.0",
     "prettier": "1.10.2"
   },
   "keywords": [

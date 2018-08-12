@@ -1,8 +1,8 @@
 var plugins = [{
-      plugin: require('/Users/syed/Documents/Programs/AskVersed/versed-blog/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
+      plugin: require('C:/Users/Hfoster/Desktop/AskVersed/client/versed-blog/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
       options: {"plugins":[],"name":"Blog Starter","short_name":"Blog","start_url":"/","background_color":"#fff","theme_color":"#663399","display":"minimal-ui","icon":"assets/logo.jpg"},
     },{
-      plugin: require('/Users/syed/Documents/Programs/AskVersed/versed-blog/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
+      plugin: require('C:/Users/Hfoster/Desktop/AskVersed/client/versed-blog/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
       options: {"plugins":[]},
     }]
 // During bootstrap, we write requires at top of this file which looks like:

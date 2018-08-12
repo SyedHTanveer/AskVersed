@@ -8,6 +8,7 @@ import HomeScreen from './pages/HomeScreen';
 import Login from './pages/Login-components/login';
 import Signup from './pages/Signup-components/signup';
 import UserHome from './pages/UserHomepage';
+import Resources from './pages/Resources';
 
 
 class App extends React.Component {
@@ -40,6 +41,7 @@ class App extends React.Component {
             <Route exact={true} path='/advisors' component={Advisors}/>
             <Route exact={true} path='/about' component={About}/>
             <Route exact={true} path='/form' component={Form}/>
+            <Route exact={true} path='/resources' component={Resources}/>
             <Route exact={true} path='/' component={HomeScreen}/>
           </Switch>
         </div>

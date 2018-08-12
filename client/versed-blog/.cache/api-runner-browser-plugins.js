@@ -1,7 +1,7 @@
 module.exports = [{
-      plugin: require('/Users/syed/Documents/Programs/AskVersed/versed-blog/node_modules/gatsby-plugin-catch-links/gatsby-browser'),
+      plugin: require('C:/Users/Hfoster/Desktop/AskVersed/client/versed-blog/node_modules/gatsby-plugin-catch-links/gatsby-browser'),
       options: {"plugins":[]},
     },{
-      plugin: require('/Users/syed/Documents/Programs/AskVersed/versed-blog/node_modules/gatsby-plugin-offline/gatsby-browser'),
+      plugin: require('C:/Users/Hfoster/Desktop/AskVersed/client/versed-blog/node_modules/gatsby-plugin-offline/gatsby-browser'),
       options: {"plugins":[]},
     }]
