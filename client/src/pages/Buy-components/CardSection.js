@@ -5,10 +5,10 @@ import {CardElement} from 'react-stripe-elements';
 class CardSection extends React.Component {
   render() {
     return (
-      <div className="container">
-      <label className="col-6">
-        Card details
-        <CardElement style={{base: {fontSize: '18px'}}} />
+      <div>
+      <label className="col-7">
+        <span>Card details</span>
+        <CardElement className="form-control" style={{base: {fontSize: '18px'}}} />
       </label>
     </div>
     );
